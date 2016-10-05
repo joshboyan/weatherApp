@@ -5,10 +5,9 @@ var gulp = require('gulp'),
  	autoprefixer = require('gulp-autoprefixer'),
     browserSync = require('browser-sync').create(),
     uglify = require('gulp-uglify'),
+    minify = require('gulp-minify-html'),
+    imgmin = require('gulp-imagemin'),
     concat = require('gulp-concat');
-
-
-var env = process.env.NODE_ENV || 'dev';
 
 var coffeeSources = ['./components/coffee/*.coffee'];
 var jsSources = ['./components/scripts/*.js']; //may need to dictate specific concatenation order
@@ -51,6 +50,18 @@ gulp.task('sassDist', function () {
     .pipe(gulp.dest('./builds/dist/css'))
 });
 
+gulp.task('html', function() {
+	gulp.src(htmlSources)
+	.pipe(minify())
+	.pipe(gulp.dest('./builds/dist'))
+});
+
+gulp.task('imgmin', function() {
+	gulp.src('builds/dev/img/**/*.*')
+	.pipe(imgmin())
+	.pipe(gulp.dest('./builds/dist/img'))
+});
+
 gulp.task('browser-sync', function() {
     browserSync.init({
         server: {
@@ -61,10 +72,10 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task('watch', function() {
-	gulp.watch(htmlSources).on('change', browserSync.reload);
+	gulp.watch(htmlSources, ['html']).on('change', browserSync.reload);
 	gulp.watch(coffeeSources, ['coffee']).on('change', browserSync.reload);
-	gulp.watch(jsSources, ['js']).on('change', browserSync.reload);
-	gulp.watch(sassSources, ['sass']).on('change', browserSync.reload);
+	gulp.watch(jsSources, ['js', 'jsDist']).on('change', browserSync.reload);
+	gulp.watch(sassSources, ['sass', 'sassDist']).on('change', browserSync.reload);
 });
 
-gulp.task('default', ['coffee', 'js', 'sass', 'browser-sync', 'sassDist', 'watch']);
+gulp.task('default', ['coffee', 'js', 'sass', 'browser-sync', 'sassDist','jsDist', 'html', 'watch']);
