@@ -11,14 +11,19 @@ html {
 
 		#{headings()} {
 			//Declare styles for h1-h6 at once
+
 		}
 
 		header {
 
+
 		}
 
 		main {
-
+			h1 {
+				color: black;
+				display: flex;
+			}
 		}
 
 		footer {
