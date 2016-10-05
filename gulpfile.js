@@ -4,7 +4,11 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
  	autoprefixer = require('gulp-autoprefixer'),
     browserSync = require('browser-sync').create(),
+    uglify = require('gulp-uglify'),
     concat = require('gulp-concat');
+
+
+var env = process.env.NODE_ENV || 'dev';
 
 var coffeeSources = ['./components/coffee/*.coffee'];
 var jsSources = ['./components/scripts/*.js']; //may need to dictate specific concatenation order
@@ -21,17 +25,30 @@ gulp.task('js', function() {
 	gulp.src(jsSources)
 	.pipe(concat('scripts.js'))
 	.pipe(gulp.dest('builds/dev/js'))
-	
+});
+
+gulp.task('jsDist', function () {
+        gulp.src(jsSources)
+        .pipe(uglify())
+        .pipe(gulp.dest('builds/dist/js'))
 });
 
 gulp.task('sass', function () {
   return gulp.src(sassSources)
-
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({
             browsers: ['last 4 versions']
         }))
     .pipe(gulp.dest('./builds/dev/css'))
+});
+
+gulp.task('sassDist', function () {
+  return gulp.src(sassSources)
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(autoprefixer({
+            browsers: ['last 4 versions']
+        }))
+    .pipe(gulp.dest('./builds/dist/css'))
 });
 
 gulp.task('browser-sync', function() {
@@ -50,4 +67,4 @@ gulp.task('watch', function() {
 	gulp.watch(sassSources, ['sass']).on('change', browserSync.reload);
 });
 
-gulp.task('default', ['coffee', 'js', 'sass', 'browser-sync', 'watch']);
+gulp.task('default', ['coffee', 'js', 'sass', 'browser-sync', 'sassDist', 'watch']);
