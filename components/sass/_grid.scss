@@ -1,0 +1,91 @@
+/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+	zoom:1; // For IE 6/7 
+}
+
+.section:before,
+.section:after { content:""; display:table; }
+.section:after { clear:both;}
+
+/*  COLUMN SETUP  */
+@mixin column {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+
+	:first-child { 
+		margin-left: 0; 
+	}
+}
+
+/*  GRID OF TWELVE  */
+.col12 {
+	width: 100%;
+	@include column;
+}
+
+.col11 {
+  	width: 91.53%;
+  	@include column;
+}
+.col10 {
+  	width: 83.06%;
+  	@include column;
+}
+
+.col9 {
+  	width: 74.6%;
+  	@include column;
+}
+
+.col8 {
+  	width: 66.13%;
+  	@include column;
+}
+
+.col7 {
+  	width: 57.66%;
+  	@include column;
+}
+
+.col6 {
+  	width: 49.2%;
+  	@include column;
+}
+
+.col5 {
+  	width: 40.73%;
+  	@include column;
+}
+
+.col4 {
+  	width: 32.26%;
+  	@include column;
+}
+
+.col3 {
+  	width: 23.8%;
+  	@include column;
+}
+
+.col2 {
+  	width: 15.33%;
+  	@include column;
+}
+
+.col1 {
+  	width: 6.866%;
+  	@include column;
+}
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 480px) {
+    
+    .col1, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9, .col10, .col11, .col12 {
+	width: 100%; 
+	margin: 1% 0 1% 0%;
+	}
+}
