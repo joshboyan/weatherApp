@@ -9,7 +9,7 @@ var jsSources = ['components/scripts/*.js']; //may need to dictate specific conc
 var sassSources = ['components/sass/*.scss'];
 
 gulp.task('coffee', function() {
-	gulp.src('components/coffee/tagline.coffee')
+	gulp.src(coffeeSources)
 	.pipe(coffee({bare: true})
 	.on('error', gutil.log))
 	.pipe(gulp.dest('components/scripts'))
@@ -22,7 +22,7 @@ gulp.task('js', function() {
 });
 
 gulp.task('sass', function () {
-  return gulp.src('./copmonents/sass/**/*.scss')
+  return gulp.src('sassSources')
     .pipe(sass( {
     	outputStyle:'extended'
     })
@@ -32,6 +32,12 @@ gulp.task('sass', function () {
  
 gulp.task('sass:watch', function () {
   gulp.watch('./components/sass/**/*.scss', ['sass']);
+});
+
+gulp.task('watch', function() {
+	gulp.watch(coffeeSources, ['coffee']);
+	gulp.watch(jsSources, ['js']);
+	gulp.watch(sassSources, ['sass']);
 });
 
 gulp.task('default', ['coffee', 'js', 'sass']);
