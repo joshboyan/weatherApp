@@ -13,7 +13,7 @@ var gulp = require('gulp'),
 
 
 var jsSources = ['./components/js/*.js']; //may need to dictate specific concatenation order
-var sassSources = ['./components/sass/*.scss'];
+var sassSources = ['./components/sass/.scss'];
 var htmlSources = ['./builds/dev/*.html'];
 
 gulp.task('panini', function() {
@@ -25,13 +25,13 @@ gulp.task('panini', function() {
       helpers: './components/helpers/',
       data: './components/data/'
     }))
-    .pipe(gulp.dest('./builds/dev'));
+    .pipe(gulp.dest('./builds/dev'))
 });
 
 gulp.task('lint', function() {
   return gulp.src('./components/js/*.js')
     .pipe(jshint())
-    .pipe(jshint.reporter('default'));
+    .pipe(jshint.reporter('default'))
 });
 
 gulp.task('js', function() {
@@ -70,13 +70,13 @@ gulp.task('sassDist', function () {
 gulp.task('html', function() {
 	gulp.src(htmlSources)
 	.pipe(minify())
-	.pipe(gulp.dest('./builds/dist'));
+	.pipe(gulp.dest('./builds/dist'))
 });
 
 gulp.task('imgmin', function() {
 	gulp.src('builds/dev/img/**/*.*')
 	.pipe(imgmin())
-	.pipe(gulp.dest('./builds/dist/img'));
+	.pipe(gulp.dest('./builds/dist/img'))
 });
 
 gulp.task('browser-sync', function() {
@@ -85,7 +85,7 @@ gulp.task('browser-sync', function() {
             baseDir: "./",
             index: "builds/dev/index.html"
         }
-    });
+    })
 });
 
 gulp.task('sitemap', function () {
@@ -95,14 +95,16 @@ gulp.task('sitemap', function () {
         .pipe(sitemap({
             siteUrl: 'https://github.com/joshboyan/minimal-framework.git'
         }))
-        .pipe(gulp.dest('./builds/dist'));
+        .pipe(gulp.dest('./builds/dist'))
 });
 
 gulp.task('watch', function() {
-	gulp.watch(['./components/{layouts,partials,helpers,data}/**/*'], [panini.refresh]);
+	gulp.watch(['./components/layouts/**/*', './components/pages/**/*' ], [panini.refresh]);
 	gulp.watch(htmlSources, ['html']).on('change', browserSync.reload);
 	gulp.watch(jsSources, ['js', 'jsDist']).on('change', browserSync.reload);
 	gulp.watch(sassSources, ['sass', 'sassDist']).on('change', browserSync.reload);
 });
 
-gulp.task('default', ['panini', 'js', 'sass', 'browser-sync', 'sassDist','jsDist', 'html', 'imgmin', 'watch', 'sitemap']);
+gulp.task('default', ['panini', 'js', 'sass', 'browser-sync', 'watch']);
+
+gulp.task('dist', ['sassDist','jsDist', 'html', 'imgmin', 'sitemap']);

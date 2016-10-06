@@ -1,6 +1,6 @@
-#Minimalist Responsive Framework
+#Minimal Responsive Framework
 
-This is a modern HTML5, mobile-first framework built with Sass and Gulp on a 12 column responsive grid. The framework boasts all of the modern accesiblility features and tools developers use in builds but none of the style bloat. The only boilerplate styling is normalize.scss, our 12 column responsive grid and basic HTML5 Sass nesting. 
+Minimal Framework is a modern HTML5, mobile-first framework built with Sass and Gulp on a 12 column responsive grid. The framework boasts all of the modern accesiblility features and tools developers use in builds but none of the style bloat. The only boilerplate styling is normalize.scss, our 12 column responsive grid and basic HTML5 Sass nesting. 
 
 ##Automated Development Tools
 
@@ -10,7 +10,7 @@ This is a modern HTML5, mobile-first framework built with Sass and Gulp on a 12 
 
 -BrowserSync Live Reload and device testing built right in.
 
--Use the lastest ES6 syntax with Babeljs, automatically check quality with jshint then compile, concatenate and minify with uglifyjs.
+-Use the lastest ES6 syntax with Babeljs, automatically check quality with jsHint then compile, concatenate and minify with Uglifyjs.
 
 -Responsive grid built on Sass preprocessor is automatically compiled, concataneted, minified and autprefixed along with your custom styles to support legacy browsers.
 
