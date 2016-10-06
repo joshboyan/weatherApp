@@ -1,3 +1,11 @@
+builds/dev/css/*
+builds/dev/js/*
+builds/dev/*.html
+builds/dist/css/*
+builds/dist/js/*
+builds/dist/img/**/*
+builds/dist/*.html
+builds/dist/sitemap.xml
 .DS_Store
 node_modules
 .tmp
