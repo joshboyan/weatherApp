@@ -1,6 +1,6 @@
 #Minimalist Responsive Framework
 
-This is a modern HTML5, mobile-first framework built with Sass and Gulp on a 12 column responsive grid. The framework boasts all of the modern accesiblility features and tools developers use in builds but none of the style bloat. The only boilerplate styling is normalize.scss, our 12 column responsive grid and basic html5 Sass nesting. 
+This is a modern HTML5, mobile-first framework built with Sass and Gulp on a 12 column responsive grid. The framework boasts all of the modern accesiblility features and tools developers use in builds but none of the style bloat. The only boilerplate styling is normalize.scss, our 12 column responsive grid and basic HTML5 Sass nesting. 
 
 ##Automated Development Tools
 
@@ -33,8 +33,26 @@ This is a modern HTML5, mobile-first framework built with Sass and Gulp on a 12 
  4. Start up the automated build and open chrome with Live Reload.
  `gulp`
 
- 5. Open the repo with your favorite text editor.
+ 5. Open _components_ folder with your favorite text editor and create HTML markup in _layouts_ and _pages_, add your Sass styles to _scss_ and JavaScript to _js_.
 
- 6. Create open _components_ folder and create markup in _layouts_ and _pages_, add your styles to the _scss_ folder and JavaScript to _js_.
+###NPM
+
+ 1. Open your terminal and navigate to where you would like to download the package.
+ `npm install minimal-framework`
+
+ 2. Change directories into the repo you just cloned.
+ `cd minimal-framework`
+
+ 3. Install the node_module dependencies.
+ `npm install`
+
+ 4. Start up the automated build and open chrome with Live Reload.
+ `gulp`
+
+ 5. Open _components_ folder with your favorite text editor and create HTML markup in _layouts_ and _pages_, add your Sass styles to _scss_ and JavaScript to _js_.
+
+
+
+
 
 
