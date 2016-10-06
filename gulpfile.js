@@ -1,5 +1,4 @@
 var gulp = require('gulp'),
-    gutil = require('gulp-util'),
     sass = require('gulp-sass'),
  	autoprefixer = require('gulp-autoprefixer'),
     browserSync = require('browser-sync').create(),
@@ -9,7 +8,8 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     jshint = require('gulp-jshint'),
     babel = require('gulp-babel'),
-    panini = require('panini');
+    panini = require('panini'),
+    sitemap = require('gulp-sitemap');
 
 
 var jsSources = ['./components/js/*.js']; //may need to dictate specific concatenation order
@@ -88,6 +88,16 @@ gulp.task('browser-sync', function() {
     });
 });
 
+gulp.task('sitemap', function () {
+    gulp.src('./builds/dist/**/*.html', {
+            read: false
+        })
+        .pipe(sitemap({
+            siteUrl: 'https://github.com/joshboyan/minimal-framework.git'
+        }))
+        .pipe(gulp.dest('./builds/dist'));
+});
+
 gulp.task('watch', function() {
 	gulp.watch(['./components/{layouts,partials,helpers,data}/**/*'], [panini.refresh]);
 	gulp.watch(htmlSources, ['html']).on('change', browserSync.reload);
@@ -95,4 +105,4 @@ gulp.task('watch', function() {
 	gulp.watch(sassSources, ['sass', 'sassDist']).on('change', browserSync.reload);
 });
 
-gulp.task('default', ['panini', 'js', 'sass', 'browser-sync', 'sassDist','jsDist', 'html', 'imgmin', 'watch']);
+gulp.task('default', ['panini', 'js', 'sass', 'browser-sync', 'sassDist','jsDist', 'html', 'imgmin', 'watch', 'sitemap']);
