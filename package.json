@@ -1,11 +1,10 @@
 {
   "name": "minimal-framework",
   "version": "0.0.1",
-  "description": "This is a modern HTML5, mobile-first framework built with Sass and Gulp on a 12 column responsive grid. The framework boasts all of the modern accesiblility features and tools developers use in builds but none of the style bloat. The only boilerplate styling is normalize.scss, our 12 column responsive grid and basic html5 Sass nesting. ",
+  "description": "This is a modern HTML5, mobile-first framework built with Sass and Gulp on a 12 column responsive grid. The framework boasts all of the modern accesiblility features and tools developers use in builds but none of the style bloat that needs to be overwritten like most frameworks. The only boilerplate styling is normalize.scss, our 12 column responsive grid and basic html5 Sass nesting. ",
   "main": "index.js",
   "keywords": [
     "responsive",
-    "minimal",
     "framework",
     "mobile-first",
     "build-tools"
@@ -17,6 +16,7 @@
   "author": "Josh Boyan",
   "license": "MIT",
   "devDependencies": {
+    "babel-preset-es2015": "^6.16.0",
     "browser-sync": "2.14.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
@@ -26,7 +26,7 @@
     "gulp-jshint": "^2.0.1",
     "gulp-minify-html": "^1.0.6",
     "gulp-sass": "^2.3.2",
-    "gulp-sitemap": "^4.2.0",
+    "gulp-shell": "^0.5.2",
     "gulp-uglify": "^2.0.0",
     "jshint": "^2.9.3",
     "panini": "^1.3.0"
