@@ -16,15 +16,25 @@ This is a modern HTML5, mobile-first framework built with Sass and Gulp on a 12 
 
 -No redundant styles that have to overwritten.
 
--Minimal file bloat, maximum development power.
+-__Minimal file bloat, maximum development power.__
 
-##Get started
+##Get Started
 
 ###Git CLI
- 1.~~git clone https://github.com/joshboyan/minimal-framework.git~~
+ 1. Clone the repo to your local machine from your terminal.
+ `git clone https://github.com/joshboyan/minimal-framework.git`
 
- 2.~~cd minimal-framework~~
+ 2. Change directories into the repo you just cloned.
+ `cd minimal-framework`
 
- 3.~~npm install~~
+ 3. Install the node_module dependencies.
+ `npm install`
 
- 
+ 4. Start up the automated build and open chrome with Live Reload.
+ `gulp`
+
+ 5. Open the repo with your favorite text editor.
+
+ 6. Create open _components_ folder and create markup in _layouts_ and _pages_, add your styles to the _scss_ folder and JavaScript to _js_.
+
+
