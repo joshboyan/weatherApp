@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+	<meta charset="utf-8">
+	<!--Double curly braces load data from the top of pages -->
+	<meta description="{{description}}">
+	<meta property="og:title" content="{{title}}" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="{{url}}" />
+	<meta property="og:image" content="{{image}}" />
+	<meta property="og:description" content="{{description}}" />
+	<title>{{title}}</title>
+	<link rel="icon" type="image/png" href="./builds/dev/img/favicon.png">
+	<link rel="stylesheet" href="./builds/dev/css/styles.css">
+	<!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+{{> body}}
+
+<script src="./builds/dev/js/scripts.js"></script>
+</body>
+</html>

@@ -7,31 +7,19 @@
 html {
 	font-size: 18px;
 
-	body {
 
-		#{headings()} {
-			//Declare styles for h1-h6 at once
+	body {		
 
-		}
-
-		header {
-
-
-		}
+		header {}
 
 		main {
-			h1 {
-				color: black;
-				display: flex;
-			}
+			h1 {color: red;}
 		}
+		
 
-		footer {
-
-		}
+		footer {}
 	}
 }
-
 //tablet styles
 @media only screen and (min-width: 768px) {
 

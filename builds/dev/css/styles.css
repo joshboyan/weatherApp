@@ -524,10 +524,7 @@ template {
 html {
   font-size: 18px; }
   html body main h1 {
-    color: black;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex; }
+    color: red; }
 
 @media only screen and (min-width: 960px) {
   html {
