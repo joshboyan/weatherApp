@@ -6,7 +6,7 @@ This is a modern HTML5, mobile-first framework built with Sass and Gulp on a 12 
 
 -Gulp.js task runner to streamline and automate your workflow.
 
--Panini templating ensures you _don't repeat yourself_ by creating reusable head, header and footer layouts templates combined with the pages unique body content.
+-Panini templating ensures you _don't repeat yourself_ by creating reusable head, header and footer layouts templates to combine with the pages unique body content.
 
 -BrowserSync Live Reload and device testing built right in.
 
@@ -20,3 +20,11 @@ This is a modern HTML5, mobile-first framework built with Sass and Gulp on a 12 
 
 ##Get started
 
+###Git CLI
+ 1.~~git clone https://github.com/joshboyan/minimal-framework.git~~
+
+ 2.~~cd minimal-framework~~
+
+ 3.~~npm install~~
+
+ 
