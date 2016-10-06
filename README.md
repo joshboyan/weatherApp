@@ -14,6 +14,8 @@ This is a modern HTML5, mobile-first framework built with Sass and Gulp on a 12 
 
 -Responsive grid built on Sass preprocessor is automatically compiled, concataneted, minified and autprefixed along with your custom styles to support legacy browsers.
 
+-Server side PHP5 form validation, sanitation and email processing.
+
 -Automatically generate and update sitemaps.
 
 -.htaccess file fine-tuned by the pros at Google.
