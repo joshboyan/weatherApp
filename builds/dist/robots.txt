@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: / 
+
+Sitemap: Your sitemaps URL here!

@@ -1,0 +1,49 @@
+
+                            
+/* TEAM */
+
+                            
+Designer(s):
+
+Developer(s):
+
+                            
+Site: 
+
+                            
+Twitter: 
+
+                            
+Location: Portland, OR.
+
+                         
+                 
+                        [...]
+						
+
+							
+/* THANKS */
+
+							
+
+						
+                 
+                        [...]
+                        
+
+                            
+/* SITE */
+
+                            
+Last update: 
+
+                            
+Standards: HTML5, CSS3, ES6, PHP5, Schema.org, OGP.me, W3C, WAI-ARIA
+
+                            
+Components: 
+
+                            
+Software: 
+
+About this project:
