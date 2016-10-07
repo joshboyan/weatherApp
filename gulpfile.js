@@ -9,6 +9,7 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     babel = require('gulp-babel'),
     panini = require('panini'),
+    inject = require('gulp-inject'),
     sitemap = require('gulp-sitemap');
 
 
@@ -17,6 +18,8 @@ var sassSources = ['./components/sass/*.scss'];
 var htmlSources = ['./builds/dev/*.html'];
 
 gulp.task('panini', function() {
+  var target = gulp.src('./builds/dev/*.html');
+  var sources = gulp.src(['./builds/dev/css/*.css', './builds/dev/js/*.js'], {read: false});
   gulp.src('./components/pages/**/*.html')
     .pipe(panini({
       root: './components/pages/',
@@ -25,7 +28,24 @@ gulp.task('panini', function() {
       helpers: './components/helpers/',
       data: './components/data/'
     }))
+    .pipe(inject(sources))
     .pipe(gulp.dest('./builds/dev'));
+});
+
+gulp.task('paniniDist', function() {
+  var target = gulp.src('./builds/dist/*.html');
+  var sources = gulp.src(['./builds/dist/css/*.css', './builds/dev/js/*.js'], {read: false});
+  gulp.src('./components/pages/**/*.html')
+    .pipe(panini({
+      root: './components/pages/',
+      layouts: './components/layouts/',
+      partials: './components/partials/',
+      helpers: './components/helpers/',
+      data: './components/data/'
+    }))
+    .pipe(inject(sources))
+    .pipe(minify())
+    .pipe(gulp.dest('./builds/dist'));
 });
 
 gulp.task('lint', function() {
@@ -67,12 +87,6 @@ gulp.task('sassDist', function () {
     .pipe(gulp.dest('./builds/dist/css'))
 });
 
-gulp.task('html', function() {
-	gulp.src(htmlSources)
-	.pipe(minify())
-	.pipe(gulp.dest('./builds/dist'));
-});
-
 gulp.task('imgmin', function() {
     gulp.src('./components/img/**/*.*')
     .pipe(imgmin())
@@ -106,11 +120,11 @@ gulp.task('sitemap', function () {
 
 gulp.task('watch', function() {
 	gulp.watch(['./components/{layouts,partials,helpers,data}/**/*'], [panini.refresh]);
-	gulp.watch(htmlSources, ['html']).on('change', browserSync.reload);
-	gulp.watch(jsSources, ['js', 'jsDist']).on('change', browserSync.reload);
-	gulp.watch(sassSources, ['sass', 'sassDist']).on('change', browserSync.reload);
+	gulp.watch(htmlSources).on('change', browserSync.reload);
+	gulp.watch(jsSources, ['js', 'js']).on('change', browserSync.reload);
+	gulp.watch(sassSources, ['sass', 'sass']).on('change', browserSync.reload);
 });
 
-gulp.task('default', ['panini', 'js', 'sass', 'browser-sync',  'imgmin', 'watch']);
+gulp.task('default', ['js', 'sass', 'panini', 'browser-sync',  'imgmin', 'watch']);
 
-gulp.task('dist', ['sassDist','jsDist', 'html', 'imgminDist', 'sitemap']);
+gulp.task('dist', ['sassDist','jsDist', 'paniniDist', 'imgminDist', 'sitemap']);

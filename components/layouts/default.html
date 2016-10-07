@@ -11,7 +11,9 @@
 	<meta property="og:description" content="{{description}}" />
 	<title>{{title}}</title>
 	<link rel="icon" type="image/png" href="./builds/dev/img/favicon.png">
-	<link rel="stylesheet" href="./builds/dev/css/styles.css">
+	
+	<!-- inject:css -->
+  	<!-- endinject -->
 	<!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   <![endif]-->
@@ -20,6 +22,8 @@
 
 {{> body}}
 
-<script src="./builds/dev/js/scripts.js"></script>
+
+<!-- inject:js -->
+<!-- endinject -->
 </body>
 </html>
