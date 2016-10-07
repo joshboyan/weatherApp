@@ -9,6 +9,12 @@ html {
 
 
 	body {		
+		p {
+			width: 80%;
+			text-align: center;
+			margin: 0 auto;
+		}
+
 
 		header {}
 
@@ -17,11 +23,16 @@ html {
 			h2,
 			h3,
 			h4 {
+				margin-top: 3.375rem;
 				text-align: center;
 			}	
 			#automatedTools {
 				span {
 					text-decoration: underline;
+				}
+
+				p {
+					text-align: left;
 				}
 			}	
 			#theGrid {

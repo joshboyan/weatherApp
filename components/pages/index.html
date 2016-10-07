@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Minimal Framework | Mobile-first, Responsive, Light-weight
 url: 
 image:
@@ -180,6 +181,7 @@ description: Minimal Framework is a modern HTML5, mobile-first framework built w
 	<div class="col6">
 		<code>
 			---<br>
+			layout: default<br>
 			<strong>title</strong>: Minimal Framework | Mobile-first, Responsive, Light-weight<br>
 			<strong>url:</strong> <br>
 			<strong>image:</strong> <br>
@@ -189,12 +191,12 @@ description: Minimal Framework is a modern HTML5, mobile-first framework built w
 	</div>
 	<div class="col6">
 		<code>
-			&lt;meta description="{{description}}" />
-			&lt;meta property="og:title" content="{{title}}" />
+			&lt;meta <strong>description</strong>="{{description}}" />
+			&lt;meta property="og:<strong>title</strong>" content="{{title}}" />
 			&lt;meta property="og:type" content="website" />
-			&lt;meta property="og:url" content="{{url}}" />
-			&lt;meta property="og:image" content="{{image}}" />
-			&lt;meta property="og:description" content="{{description}}" />
+			&lt;meta property="og:<strong>url</strong>" content="{{url}}" />
+			&lt;meta property="og:<strong>image</strong>" content="{{image}}" />
+			&lt;meta property="og:<strong>description</strong>" content="{{description}}" />
 			&lt;title>{{title}} &lt;/title>
 		</code>
 	</div>

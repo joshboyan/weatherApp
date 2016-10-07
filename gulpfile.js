@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
- 	autoprefixer = require('gulp-autoprefixer'),
+ 	  autoprefixer = require('gulp-autoprefixer'),
     browserSync = require('browser-sync').create(),
     uglify = require('gulp-uglify'),
     minify = require('gulp-minify-html'),
@@ -15,7 +15,7 @@ var gulp = require('gulp'),
 
 var jsSources = ['./components/js/*.js']; //may need to dictate specific concatenation order
 var sassSources = ['./components/sass/*.scss'];
-var htmlSources = ['./builds/dev/*.html'];
+var htmlSources = ['./components/**/*.html'];
 
 gulp.task('panini', function() {
   var target = gulp.src('./builds/dev/*.html');
@@ -120,9 +120,9 @@ gulp.task('sitemap', function () {
 
 gulp.task('watch', function() {
 	gulp.watch(['./components/{layouts,partials,helpers,data}/**/*'], [panini.refresh]);
-	gulp.watch(htmlSources).on('change', browserSync.reload);
-	gulp.watch(jsSources, ['js', 'js']).on('change', browserSync.reload);
-	gulp.watch(sassSources, ['sass', 'sass']).on('change', browserSync.reload);
+	gulp.watch(htmlSources, ['panini']).on('change', browserSync.reload);
+	gulp.watch(jsSources, ['js']).on('change', browserSync.reload);
+	gulp.watch(sassSources, ['sass']).on('change', browserSync.reload);
 });
 
 gulp.task('default', ['js', 'sass', 'panini', 'browser-sync',  'imgmin', 'watch']);
