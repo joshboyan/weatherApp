@@ -1,14 +1,30 @@
 /*  SECTIONS  */
-section {
+header,
+main,
+footer,
+section,
+.section {
   clear: both;
   padding: 0px;
   margin: 0px;
   zoom:1; // For IE 6/7 
 }
 
+header:before,
+header:after,
+main:before,
+main:after,
+footer:before,
+footer:after,
 section:before,
-section:after { content:""; display:table; }
-section:after { clear:both;}
+section:after,
+.section:before,
+.section:after { content:""; display:table; }
+header:after,
+main:after,
+footer:after,
+section:after,
+.section:after { clear:both;}
   
 /*  COLUMN SETUP  */
 @mixin column {

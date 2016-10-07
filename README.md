@@ -1,6 +1,6 @@
-#Minimalist Responsive Framework
+#__min__imal responsive __frame__work
 
-This is a modern HTML5, mobile-first framework built with Sass and Gulp on a 12 column responsive grid. The framework boasts all of the modern accesiblility features and tools developers use in builds but none of the style bloat. The only boilerplate styling is normalize.scss, our 12 column responsive grid and basic HTML5 Sass nesting. 
+minframe is a modern HTML5, mobile-first framework built with Sass and Gulp on a 12 column responsive grid. The framework boasts all of the modern accessiblility features and tools developers use in builds but none of the style bloat. The only boilerplate styling is normalize.scss, our 12 column responsive grid and basic HTML5 Sass nesting. Javascript is only required during the build process, not in the browser. 
 
 ##Automated Development Tools
 
@@ -28,10 +28,10 @@ This is a modern HTML5, mobile-first framework built with Sass and Gulp on a 12 
 
 ###Git CLI
  1. Clone the repo to your local machine from your terminal.
- `git clone https://github.com/joshboyan/minimal-framework.git`
+ `git clone https://github.com/joshboyan/minframe.git`
 
  2. Change directories into the repo you just cloned.
- `cd minimal-framework`
+ `cd minframe`
 
  3. Install the node_module dependencies.
  `npm install`
@@ -44,10 +44,10 @@ This is a modern HTML5, mobile-first framework built with Sass and Gulp on a 12 
 ###NPM
 
  1. Open your terminal and navigate to where you would like to download the package.
- `npm install minimal-framework`
+ `npm install minframe`
 
  2. Change directories into the repo you just cloned.
- `cd minimal-framework`
+ `cd minframe`
 
  3. Install the node_module dependencies.
  `npm install`

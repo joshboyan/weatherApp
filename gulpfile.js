@@ -47,7 +47,7 @@ gulp.task('paniniDist', function() {
     .pipe(minify())
     .pipe(gulp.dest('./builds/dist'));
 });
-
+//Should be part of js task
 gulp.task('lint', function() {
   return gulp.src('./components/js/*.js')
     .pipe(jshint())
@@ -120,9 +120,9 @@ gulp.task('sitemap', function () {
 
 gulp.task('watch', function() {
 	gulp.watch(['./components/{layouts,partials,helpers,data}/**/*'], [panini.refresh]);
-	gulp.watch(htmlSources, ['panini']).on('change', browserSync.reload);
 	gulp.watch(jsSources, ['js']).on('change', browserSync.reload);
 	gulp.watch(sassSources, ['sass']).on('change', browserSync.reload);
+  gulp.watch(htmlSources, ['panini']).on('change', browserSync.reload);
 });
 
 gulp.task('default', ['js', 'sass', 'panini', 'browser-sync',  'imgmin', 'watch']);

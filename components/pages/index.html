@@ -1,60 +1,74 @@
 ---
 layout: default
-title: Minimal Framework | Mobile-first, Responsive, Light-weight
+title: minframe | Mobile-first, Responsive, Light-weight
 url: 
 image:
-description: Minimal Framework is a modern HTML5, mobile-first framework built with Sass and Gulp on a 12 column responsive grid. The framework boasts all of the modern accesiblility features and tools developers use in builds but none of the style bloat. 
+description: minframe is a modern HTML5, mobile-first framework built with Sass and Gulp on a 12 column responsive grid. The framework boasts all of the modern accessiblility features and tools developers use in builds but none of the style bloat. 
 
 ---
-<header>
 	
 </header>
-<main>
-<h1>Minimal Responsive Framework</h1>
+<main id="main">
+<h1><strong>min</strong>imal responsive <strong>frame</strong>work</h1>
 <section id="summary">
-	<p>Minimal Framework is a modern HTML5, mobile-first framework built with Sass and Gulp on a 12 column responsive grid. The framework boasts all of the modern accesiblility features and tools developers use in builds but none of the style bloat. The only boilerplate styling is normalize.scss, our 12 column responsive grid and basic HTML5 Sass nesting.</p>
+	<p>minframe is a modern HTML5, mobile-first framework built with Sass and Gulp on a 12 column responsive grid. The framework boasts all of the modern accessiblility features and tools developers use in builds but none of the style bloat. The only boilerplate styling is normalize.scss, our 12 column responsive grid and basic HTML5 Sass nesting. Javascript is only required during the build process, not in the browser.</p>
 </section><!--/#summary-->
 <section id="automatedTools">
 <h2>Automated Development Tools</h2>
-	<div class="col6">
-		<i class="fa fa-"></i>
-		<p>Gulp.js task runner to streamline and automate your workflow.</p>
+<div class="col6">
+		<i class="fa fa-table"></i>
+		<hr>
+		<p>Responsive grid built on Sass preprocessor is automatically compiled, concataneted, minified and autprefixed along with your custom styles to support legacy browsers.</p>
 	</div>
 	<div class="col6">
-		<i class="fa fa-"></i>
+		<i class="fa fa-file-code-o"></i>
+		<hr>
 		<p>Panini templating ensures you <em><span>D</span>on't <span>R</span>epeat <span>Y</span>ourself</em> by creating reusable head, header and footer layouts templates to combine with the pages unique body content.</p>
 		
 	</div>
 	<div class="col6">
-		<i class="fa fa-"></i>
-		<p>Use the lastest ES6 syntax with Babeljs, automatically check quality with jsHint then compile, concatenate and minify with Uglifyjs.</p>
-	</div>
-	<div class="col6">
-		<i class="fa fa-"></i>
-		<p>Responsive grid built on Sass preprocessor is automatically compiled, concataneted, minified and autprefixed along with your custom styles to support legacy browsers.</p>
-	</div>
-	<div class="col6">
-		<i class="fa fa-"></i>
+		<i class="fa fa-desktop"></i>
+		<hr>
 		<p>BrowserSync Live Reload and device testing built right in.</p>
 	</div>
+	
 	<div class="col6">
-		<i class="fa fa-"></i>
+		<i class="fa fa-cogs"></i>
+		<hr>
+		<p>Gulp.js task runner to streamline and automate your workflow.</p>
+	</div>
+	
+	<div class="col6">
+		<i class="fa fa-paper-plane-o"></i>
+		<hr>
 		<p>Server side PHP5 form validation, sanitation and email processing.</p>
 	</div>
 	<div class="col6">
-		<i class="fa fa-"></i>
-		<p>Automatically generate and update sitemaps.</p>
+		<i class="fa fa-check-square-o"></i>
+		<hr>
+		<p>Use the lastest ES6 syntax with Babeljs, automatically check quality with jsHint then compile, concatenate and minify with Uglifyjs.</p>
 	</div>
 	<div class="col6">
-		<i class="fa fa-"></i>
+		<i class="fa fa-map-o"></i>
+		<hr>
+		<p>Automatically generate and update sitemaps.</p>
+	</div>
+
+	<div class="col6">
+		<i class="fa fa-tachometer"></i>
+		<hr>
 		<p>.htaccess file fine-tuned by the pros at Google.</p>
 	</div>
-	<h4>No redundant styles that have to overwritten.</h4>
-	<h3>Minimal File Bloat, Maximum Development Power.</h3>
+	<div class="section">
+		<h4>No redundant styles to overwrite.</h4>
+		<h3>Minimal File Bloat, Maximum Development Power.</h3>
+	</div>
 </section><!--/#automatedTools-->
 <section id="theGrid">
 	<h2>The Grid</h2>
-	<p>The Minimal Frameworks Responsive Grid is a 12 column, mobile-first design that scales up to fit all viewports. All columns are 100% width by default until 768px. It is built with Sass mixins eliminating much of the <code>div="class class class"</code> markup that polutes the HTML files of most other frameworks. The <code>section</code> tag itself defines horizontal sections and clears floats much like <code>div class="row"</code> in Bootstrap. Columns only require one class <code>col#</code> where <code>#</code> is how many units out of twelve the column spans.</p>
+	<p>The Minimal Frameworks Responsive Grid is a 12 column, mobile-first design that scales up to fit all viewports. All columns are 100% width by default until 768px. It is built with Sass mixins eliminating much of the <code>div="class class class"</code> markup that polutes the HTML files of other frameworks. The <code>section</code> tag itself defines horizontal sections and clears floats much like <code>div class="row"</code> in Bootstrap. You also have the option of using <code>div class="section"</code> if that makes more semeantic sense. Columns only require one class <code>col#</code> where <code>#</code> is how many units out of twelve the column spans. Go ahead, resize your browser.</p>
+	<p>.section</p>
+	<div class="section">
 	<div class="col1">
 		<p>.col1</p>
 	</div>
@@ -174,32 +188,88 @@ description: Minimal Framework is a modern HTML5, mobile-first framework built w
 	<div class="col12 ">
 		<p>.col12</p>
 	</div>
+	<div>
 </section><!--/#theGrid-->
 <section id="templating">
 	<h2><em>DRY</em> Reusable Templates</h2>
-	<p>Zurb's Panini flat file compiler allows us to create pages with consistent reusable layouts and partials. Only write your head, header, navigation and footer one time and reuse it across all of your pages. Only make edits once to change you rentire site.</p>
+	<p>Zurb's Panini flat file compiler allows us to create pages with consistent reusable layouts and partials. Only write your head, header, navigation and footer one time and reuse it across all of your pages. Only make edits once to change your entire site.</p>
 	<div class="col6">
+		<h4>Front Matter Markup</h4>
+		<p>Top of each unique page(&darr;index.html&darr;)</p>
+		<div>
 		<code>
 			---<br>
 			layout: default<br>
-			<strong>title</strong>: Minimal Framework | Mobile-first, Responsive, Light-weight<br>
+			<strong>title</strong>: minframe | Mobile-first, Responsive, Light-weight<br>
 			<strong>url:</strong> <br>
 			<strong>image:</strong> <br>
-			<strong>description:</strong> Minimal Framework is a modern HTML5, mobile-first framework built with Sass and Gulp on a 12 column responsive grid. The framework boasts all of the modern accesiblility features and tools developers use in builds but none of the style bloat.<br>
+			<strong>description:</strong> minframe is a modern HTML5, mobile-first framework built with Sass and Gulp on a 12 column responsive grid. The framework boasts all of the modern accessiblility features and tools developers use in builds but none of the style bloat.<br>
 			---
 		</code>
+		</div>
 	</div>
 	<div class="col6">
+		<h4>Template Head Tags</h4>
+		<p>Populated from page Front Matter markup (&darr;default.html&darr;)</p>
+		<div>
 		<code>
-			&lt;meta <strong>description</strong>="{{description}}" />
-			&lt;meta property="og:<strong>title</strong>" content="{{title}}" />
-			&lt;meta property="og:type" content="website" />
-			&lt;meta property="og:<strong>url</strong>" content="{{url}}" />
-			&lt;meta property="og:<strong>image</strong>" content="{{image}}" />
-			&lt;meta property="og:<strong>description</strong>" content="{{description}}" />
-			&lt;title>{{title}} &lt;/title>
+			&lt;meta <strong>description</strong>="{{description}}" /><br>
+			&lt;meta property="og:<strong>title</strong>" content="{{title}}" /><br>
+			&lt;meta property="og:type" content="website" /><br>
+			&lt;meta property="og:<strong>url</strong>" content="{{url}}" /><br>
+			&lt;meta property="og:<strong>image</strong>" content="{{image}}" /><br>
+			&lt;meta property="og:<strong>description</strong>" content="{{description}}" /><br>
+			&lt;<strong>title></strong>{{title}} &lt;/title>
 		</code>
+		</div>
 	</div>
-</section>
+</section><!--/#templating-->
+<section id="getStarted">	
+	<h2>Get Started</h2>
+	<div class="col6">
+	<h4>NPM</h4>
+	<ol>
+		<li>Open your terminal and navigate to where you would like to download the package.<br>
+			<code>npm install minframe</code>
+		</li>
+		<li>Change directories into the package you just installed.<br>
+			<code>cd minframe</code>
+		</li>
+		<li>Install the node_module dependencies.<br>
+			<code>npm install</code>
+		</li>
+		<li>Start up the automated build and open chrome with Live Reload.<br>
+			<code>gulp</code>
+		</li>
+		<li>Open _components_ folder with your favorite text editor and create HTML markup in _layouts_ and _pages_, add your Sass styles to _scss_ and JavaScript to _js_.</li>
+		<li>When you are finished, create your distribution build.<br>
+			<code>gulp dist</code>
+		</li>
+	</ol>
+	</div>
+	<div class="col6">
+	<h4>Git CLI</h4>
+	<ol>
+		<li>Clone the repo to your local machine from your terminal.<br><code>git&nbsp;clone&nbsp;https://github.com/joshboyan/minframe.git</code></li>
+		<li>Change directories into the repo you just cloned.<br>
+			<code>cd minframe</code>
+		</li>
+		<li>Install the node_module dependencies.<br>
+			<code>npm install</code>
+		</li>
+		<li>Start up the automated build and open chrome with Live Reload.<br>
+			<code>gulp</code>
+		</li>
+		<li>Open _components_ folder with your favorite text editor and create HTML markup in _layouts_ and _pages_, add your Sass styles to _scss_ and JavaScript to _js_.</li>
+		<li>When you are finished, create your distribution build.<br>
+			<code>gulp dist</code>
+		</li>
+	</ol>
+	</div>
+	<h4>Git GUI</h4>
+	<a href="https://github.com/joshboyan/minframe">GitHub</a>
+	<a href="#">minframe Tutorial</a>	
+</section><!--/#getStarted-->
+
 </main>
-<footer></footer>
+
