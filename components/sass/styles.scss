@@ -2,161 +2,307 @@
 @import "grid";
 @import "variables";
 @import "mixins";
-
 //mobile syles
 html {
-	font-size: 18px;
-	line-height: 1.5;
-
-	body {		
-		p {
-			width: 80%;
-			text-align: center;
-			margin: 0 auto;
-		}
-
-
-		header {}
-
-		main {
-			h1,
-			h2,
-			h3,
-			h4 {
-				margin-top: 3.375rem;
-				text-align: center;
-			}	
-
-			h1 strong {
-				font-size: 2.75rem;
-			}
-			#automatedTools {
-				span {
-					text-decoration: underline;
-				}
-
-				i {
-					width: 100%;
-					text-align: center;
-					margin-top: 1.5rem;
-					margin-bottom: .75rem;
-					font-size: 2.25rem;
-				}
-				hr {
-					width: 30%;
-					border: 1px solid $color2;
-					margin-bottom: 1rem;
-				}
-
-				p {
-					text-align: left;
-				}
-			}	
-			#theGrid {
-				code {
-					@include code;
-				}
-
-				p:nth-of-type(2) {
-					position: relative;
-					width: 10%;
-					text-align: left;
-					background-color: $color1;
-					padding: 1rem;
-					margin:  0 80% -3.75rem 10%;
-				}
-
-				.section {
-					margin-top: 2.25rem;
-					padding-top: 1.5rem;
-					border: 1px solid $color5;
-				}
-				.col1, 
-				.col2, 
-				.col3, 
-				.col4, 
-				.col5, 
-				.col6, 
-				.col7, 
-				.col8, 
-				.col9, 
-				.col10, 
-				.col11, 
-				.col12, {
-					background-color: blue;
-					p {
-						text-align: center;
-						padding: 1rem 0;
-					}
-				}
-			}
-			#templating {
-				em {
-					text-decoration: underline;
-				} 
-				
-				h4 {
-					margin-top: .75rem;
-				}
-				p {
-					margin-bottom: 1.5rem;
-				}
-				.col6 div {
-					@include code;
-				}
-				.col6:nth-of-type(1) div {
-					margin-top: 3rem;
-				}
-				strong {
-					color: red;
-				}
-				
-			}
-			#getStarted {
-				code {
-					@include code;
-				}
-			}
-		
-		}
-		footer {
-			form {
-				input,
-				label,
-				select,
-				textarea {
-					width: 100%;
-				}
-			label {
-				font-size: .75rem;
-			}
-			input,
-			select {
-				margin-bottom: .50rem;
-			}
-
-			select {
-				background-color: $color4;
-			}
-			}
-		}
-	}
+    font-size: 18px;
+    line-height: 1.5;
+    body {
+        width: 100%;
+        p {
+            width: 80%;
+            text-align: center;
+            margin: 0 auto;
+        }
+        header {
+            overflow: hidden;
+            nav {
+                .navbar {
+                    position: fixed;
+                    z-index: 500;
+                    width: 100%;
+                    top: 0;
+                    color: $color1;
+                    background-color: $color2;
+                    img {
+                    	padding-top: .75rem;
+                    }
+                    ul {
+                        display: none;
+                        float: right;
+                        width: 75%;
+                        li {
+                            display: inline;
+                            font-size: 1.25rem;
+                            padding: 0 1%;
+                            a {
+                                text-decoration: none;
+                                color: $color1;
+                            }
+                        }
+                    }
+                }
+                .fa-bars {
+                    color: $color1;
+                    float: right;
+                    font-size: 2.25rem;
+                    padding: 1rem;
+                }
+                #mobileMenu {
+                    position: fixed;
+                    z-index: 1000;
+                    list-style-type: none;
+                    background-color: $color2;
+                    width: 100%;
+                    height: 100vh;
+                    right: -120vw;
+                    top: -10vh;
+                    transition: 1s;
+                    li {
+                        color: $color1;
+                        font-size: 2.25rem;
+                        margin-left: 10vw;
+                        i {
+                            padding-top: 3.375rem;
+                            margin-left: 75vw;
+                        }
+                        a {
+                            text-decoration: none;
+                            color: $color1;
+                        }
+                    }
+                }
+            }
+        }
+        main {
+            overflow: hidden;
+            margin-top: 3.375rem;
+            h1,
+            h2,
+            h3,
+            h4 {
+                margin-top: 3.375rem;
+                text-align: center;
+            }
+            h1 strong {
+                font-size: 2.75rem;
+            }
+            #automatedTools {
+                span {
+                    text-decoration: underline;
+                }
+                i {
+                    width: 100%;
+                    text-align: center;
+                    margin-top: 1.5rem;
+                    margin-bottom: .75rem;
+                    font-size: 2.25rem;
+                }
+                hr {
+                    width: 30%;
+                    border: 1px solid $color2;
+                    margin-bottom: 1rem;
+                }
+                p {
+                    text-align: left;
+                }
+            }
+            #theGrid {
+                code {
+                    @include code;
+                }
+                p:nth-of-type(2) {
+                    position: relative;
+                    width: 10%;
+                    text-align: left;
+                    background-color: $color1;
+                    padding: 1rem;
+                    margin: 0 80% -3.75rem 10%;
+                }
+                .section {
+                    margin-top: 2.25rem;
+                    padding-top: 1.5rem;
+                    border: 1px solid $color5;
+                }
+                .col1,
+                .col2,
+                .col3,
+                .col4,
+                .col5,
+                .col6,
+                .col7,
+                .col8,
+                .col9,
+                .col10,
+                .col11,
+                .col12,
+                {
+                    background-color: blue;
+                    p {
+                        text-align: center;
+                        padding: 1rem 0;
+                    }
+                }
+            }
+            #templating {
+                em {
+                    text-decoration: underline;
+                }
+                h4 {
+                    margin-top: .75rem;
+                }
+                p {
+                    margin-bottom: 1.5rem;
+                }
+                .col6 div {
+                    width: 90%;
+                    margin: 0 2.5%;
+                    padding: 2.5%;
+                    @include code;
+                }
+                .col6:nth-of-type(1) div {
+                    margin-top: 3rem;
+                }
+                strong {
+                    color: red;
+                }
+            }
+            #getStarted {
+                code {
+                    @include code;
+                }
+                hr {
+                    width: 80%;
+                    margin: 2.25rem auto;
+                }
+                p:last-of-type {
+                    margin-bottom: 2.25rem;
+                }
+            }
+        }
+        footer {
+            overflow: hidden;
+            color: $color1;
+            background-color: $color2;
+            padding-top: 2.25rem;
+            img {
+                width: 80%;
+                margin: 1.5rem 10%;
+            }
+            li {
+                list-style-type: none;
+                display: inline;
+                font-size: 2.25rem;
+                padding: 0 10%;
+                &:first-of-type {
+                    padding-left: 5%;
+                }
+            }
+            form {
+                input,
+                label,
+                select,
+                textarea {
+                    width: 80%;
+                    margin: 0 10%;
+                }
+                label {
+                    font-size: .75rem;
+                }
+                input,
+                select {
+                    margin-bottom: .50rem;
+                }
+                select {
+                    background-color: $color4;
+                }
+                option {
+                    margin-top: -100px;
+                }
+            }
+            #copy {
+                span {
+                    margin-left: 10%;
+                }
+                a i {
+                    margin: 1rem 0 0 10%;
+                    font-size: 3.375rem;
+                }
+            }
+            .tabletFormPosition {
+                display: none;
+            }
+            a {
+                color: $color1;
+            }
+        }
+    }
 }
+
 //tablet styles
 @media only screen and (min-width: 768px) {
-
+    html {
+        body {
+            header {
+                nav {
+                    .fa-bars {
+                        display: none;
+                    }
+                    .navbar {
+                        ul {
+                            display: inline;
+                            width: 60%;
+                        }
+                    }
+                }
+            }
+            footer {
+            	img {
+            		width: 100%;
+            	}
+            	li {
+            		display: block;
+            		&:first-of-type {
+            			padding-left: 10%;
+            		}
+            		&:last-of-type {
+            			padding-left: 5%;
+            		}
+            	}
+            	#copy a i {
+            		margin-left: 50%
+            	}
+            }
+        }
+    }
 }
 
 //notebook styles
 @media only screen and (min-width: 960px) {
-	html {
-		font-size: 20px;
-	}
-
+    html {
+        font-size: 20px;
+        body {
+            header {
+                nav {
+                    .navbar {
+                        ul {
+                        	width: 70%;
+                            li {
+                            	font-size: 1.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+            footer {
+            	li {
+            		&:last-of-type {
+            			padding-left: 10%;
+            		}
+            	}
+            }
+        }
+    }
 }
 
 //large screen styles
-@media only screen and (min-width: 1140px) {
-
-}
-	
+@media only screen and (min-width: 1140px) {}

@@ -1,3 +1,7 @@
+function slideIn() {
+	document.getElementById('menu').style.right="0";
+}
 
-var eatIt= "Eat a Dick!";
-console.log(eatIt);
+function slideOut() {
+	document.getElementById('menu').style.right="-120vw";
+}
