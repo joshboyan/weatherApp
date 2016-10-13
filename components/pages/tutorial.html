@@ -9,16 +9,53 @@ description: This tutorial is a step by step, basic introduction to minframe, fr
 </header>
 <main id="main">
 <h1><strong>min</strong>imal <strong>frame</strong>work Tutorial</h1>
-<h2>A basic introduction to minframe, front end frameworks and build tools</h2>
+<h2>A basic introduction to minframe, front end frameworks and build&nbsp;tools</h2>
 <section id="summary">
-	<p></p>
+	<p>This tutorial is for people who have built a few websites and are familiar with HTML and CSS as well as directory structures and file paths. It assumes that you know little to nothing about npm, build-tools or front-end frameworks. Feel free to skip around if you are a little more advanced and are just looking for specific information.</p>
 </section><!--/#summary-->
 <section id="getStarted">	
 	<h2>Get Started</h2>
+	<div class="section">
 	<div class="col6">
 	<h4>NPM</h4>
+	<p>minframe requires that you have <a href="https://nodejs.org/en/">node.js</a> installed on your machine. Node.js comes with a package manager (NPM) and is used to install and manage bits of open source code others in the community have written. This open source community allows us to buuild powerful applications much more quickly by combining existing code to perform tasks. minframe uses npm to automate many repetitive and time consuming development tasks. This lets you build sites better and faster!</p>
+	</div>
+	<div class="col6">
+		<a href="https://nodejs.org/en/">
+			<h4>node.js</h4>
+			<img src="%img/nodejs.jpg" alt="nodejs.org">
+		</a>
+	</div>
+	</div>
+	<div class="section">
+		<div class="col6">
+	<p>If you are using a Windows machine you will want to download a <a href="http://win-bash.sourceforge.net/">bash command line interface (CLI) shell</a>. The default terminal in windows uses different commands than the Unix based shell for Linux and Mac. Every CLI tutorial in web design uses the bash shell so don't make it hard on yourself!</p>
+	</div>
+	<div class="col6">
+		<a href="http://win-bash.sourceforge.net/">
+			<h4>win-bash</h4>
+			<img src="%img/winbash.jpg" alt="win-bash">
+		</a>
+	</div>
+</div>
+	<div class="section">
+	<div class="col6">
+	<p>We will not be doing anything beyond basic commands in the bash CLI. If you have never used the bash CLI before it would be beneficial to you to take this free course on <a href="https://www.udacity.com/course/linux-command-line-basics--ud595">Udacity.com; Linux Command Line Basics.</a></p>
+	</div>
+	<div class="col6">
+	<a href="https://www.udacity.com/course/linux-command-line-basics--ud595">
+			<h4>Udacity</h4>
+			<img src="%img/udacity.jpg" alt="Udacity.com">
+		</a>
+	</div>
+</div>
+
+<p>Once you have NPM and feel confident enough to type a few commands: </p>
 	<ol>
 		<li>Open your terminal and navigate to where you would like to download the&nbsp;package.<br>
+			<code>cd desktop</code>
+		</li>
+		<li>Install minframe<br>
 			<code>npm install minframe</code>
 		</li>
 		<li>Change directories into the package you just&nbsp;installed.<br>
@@ -28,35 +65,41 @@ description: This tutorial is a step by step, basic introduction to minframe, fr
 			<code>npm install</code>
 		</li>
 		<li>Start up the automated build and open chrome with Live Reload.<br>
-			<code>gulp</code>
+			<code>gulp</code><br>
 		</li>
-		<li>Open _components_ folder with your favorite text editor and create HTML markup in _layouts_ and _pages_, add your Sass styles to _scss_ and JavaScript&nbsp;to&nbsp;_js_.</li>
-		<li>When you are finished, create your distribution build.<br>
-			<code>gulp dist</code>
+		<li>To stop the automated workflow tools, use:<br>
+			<code>ctr c OR cmd c</code>
 		</li>
+
 	</ol>
-	</div>
-	<div class="col6">
-	<h4>Git CLI</h4>
-	<ol>
-		<li>Clone the repo to your local machine from your&nbsp;terminal.<br><code>git clone https://github.com/joshboyan/minframe.git</code></li>
-		<li>Change directories into the repo you just&nbsp;cloned.<br>
-			<code>cd minframe</code>
-		</li>
-		<li>Install the node_module dependencies.<br>
-			<code>npm install</code>
-		</li>
-		<li>Start up the automated build and open chrome with Live&nbsp;Reload.<br>
-			<code>gulp</code>
-		</li>
-		<li>Open _components_ folder with your favorite text editor and create HTML markup in _layouts_ and _pages_, add your Sass styles to _scss_ and JavaScript to _js_.</li>
-		<li>When you are finished, create your&nbsp;distribution&nbsp;build.<br>
-			<code>gulp dist</code>
-		</li>
-	</ol>
-	</div>
-	<h4>Git GUI</h4>
-	<p>You can clone minframe using the <a href="https://github.com/joshboyan/minframe" target="_blank"><i class="fa fa-github"></i>GitHub GUI</a> but you will need to use your command line interface to work&nbsp;with&nbsp;minframe.</p>
+	</div>	
 </section><!--/#getStarted-->
+<section id="firstLook">
+	<h2>File Structure</h2>
+	<p>Once you have fired up the automated tools with npm in step 5 of the last section, open the minframe folder in your favorite text editor. You will notice 3 folders: <em>builds</em> <em>components</em> and <em>node_modules</em> as well as some supporting files. Let's look at the supporting files first. </p>
+
+	<h4>.gitignore</h4>
+	<p>The <em>.gitignore</em> file is part of the 
+	<a href="https://github.com/">Github</a> and <a href="https://git-scm.com/"></a>Git ecosystem. These are used for version control. This means keeping track of old copies of your websites, apps and other programs you are building. These are not required to use minframe but highly reccomended for anyone who writes code. You can follow the links in the begining of this paragraph to download Git and find tutorials on how to use Git and GitHub. <a href="http://gitimmersion.com/">Git Immersion</a> is another great resource to help you use this invaluable tool.</p>
+	
+	<p>The .gitignore file itself is a configuration file for the git client on your local machine. We use it to tell Git which directories and files we want ot ignore or <span>NOT</span> keep track of in our version control. We generally do not want to keep track of configuration files since everyone's machine is set up differently. In minframe, we want to ignore all the build directories because they are built from our components directory. Keeping track of them will slow down git commits and pushes. It is mainly just excessive.</p>
+
+	<h4>gulpfile.js</h4>
+	<p><a href="http://gulpjs.com/">Gulp</a> is a javascript utililty used to automate tasks in yuo rdevelopment workflow. It is a plugin based system whare each plugin does one thing very well. There are many more plugins available and I suggest you Google <em>gulp-whatever-you-need to do</em>if you require a utility inaddition to what minframe provides.</p>
+
+	<p>The gulpfile.js is the set of instructions that is executed when you type the <em>gulp</em> command in your CLI. It controls the how each package we installed with NPM interfaces with your code. We do this in 5 steps:</p>
+
+	<ol>
+		<li>We assign each package and their alias to a unique variable at the top of the page.</li>
+		<li>We create variables for our sources to keep everything neat.</li>
+		<li>We create individul gulp.tasks that we can call each time we would like to run a process.</li>
+		<li>We assign files for gulp to look for changes in and tasks to run when changes occur.</li>
+		<li>We bundle the tasks and watchers into two main commands:<br>
+			gulp - Runs in the background while we are working.<br>
+			gulp dist - Creates a finished package to upload to a server via FTP.</li>
+	</ol>
+
+
+</section>
 
 </main>

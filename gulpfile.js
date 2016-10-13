@@ -9,7 +9,6 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     babel = require('gulp-babel'),
     panini = require('panini'),
-    inject = require('gulp-inject'),
     sitemap = require('gulp-sitemap'),
     replace = require('gulp-replace');
 
@@ -17,9 +16,16 @@ var jsSources = ['./components/js/*.js']; //may need to dictate specific concate
 var sassSources = ['./components/sass/*.scss'];
 var htmlSources = ['./components/**/*.html'];
 
+gulp.task('browser-sync', function() {
+    browserSync.init({
+        server: {
+            baseDir: "./",
+            index: "builds/dev/tutorial.html"
+        }
+    });
+});
+
 gulp.task('panini', function() {
-  var target = gulp.src('./builds/dev/*.html');
-  var sources = gulp.src(['./builds/dev/css/*.css', './builds/dev/js/*.js'], {read: false});
   gulp.src('./components/pages/**/*.html')
     .pipe(panini({
       root: './components/pages/',
@@ -28,13 +34,11 @@ gulp.task('panini', function() {
       helpers: './components/helpers/',
       data: './components/data/'
     }))
-    .pipe(inject(sources))
+    .pipe(replace(/(%)/g, './builds/dev/'))
     .pipe(gulp.dest('./builds/dev'));
 });
 
 gulp.task('paniniDist', function() {
-  var target = gulp.src('./builds/dist/*.html');
-  var sources = gulp.src(['css/styles.css', 'js/scripts.js'], {read: false});
   gulp.src('./components/pages/**/*.html')
     .pipe(panini({
       root: './components/pages/',
@@ -43,8 +47,7 @@ gulp.task('paniniDist', function() {
       helpers: './components/helpers/',
       data: './components/data/'
     }))
-    .pipe(inject(sources))
-    .pipe(replace(/(.\/builds\/dev\/)/g, ''))
+    .pipe(replace(/(%)/g, ''))
     .pipe(gulp.dest('./builds/dist'));
 });
 //Should be part of js task
@@ -97,15 +100,6 @@ gulp.task('imgminDist', function() {
 	gulp.src('./builds/dev/img/**/*.*')
 	.pipe(imgmin())
 	.pipe(gulp.dest('./builds/dist/img'));
-});
-
-gulp.task('browser-sync', function() {
-    browserSync.init({
-        server: {
-            baseDir: "./",
-            index: "builds/dev/tutorial.html"
-        }
-    });
 });
 
 gulp.task('sitemap', function () {

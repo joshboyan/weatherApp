@@ -2,7 +2,7 @@
 @import "grid";
 @import "variables";
 @import "mixins";
-//mobile syles
+//mobile styles
 html {
     font-size: 18px;
     line-height: 1.5;
@@ -11,7 +11,7 @@ html {
         p {
             width: 80%;
             text-align: center;
-            margin: 0 auto;
+            margin: 0 auto 1.5rem auto;
         }
         header {
             overflow: hidden;
@@ -178,6 +178,12 @@ html {
                 p:last-of-type {
                     margin-bottom: 2.25rem;
                 }
+                img {
+                    width: 95%;
+                }
+                .col6:nth-of-type(4) {
+                    margin-top: -5.063rem;
+                }
             }
         }
         footer {
@@ -297,7 +303,7 @@ html {
             footer {
             	li {
             		&:last-of-type {
-            			padding-left: 10%;
+            			padding-left: 7.5%;
             		}
             	}
             }
