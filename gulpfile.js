@@ -34,7 +34,7 @@ gulp.task('panini', function() {
 
 gulp.task('paniniDist', function() {
   var target = gulp.src('./builds/dist/*.html');
-  var sources = gulp.src(['./css/*.css', './js/*.js'], {read: false});
+  var sources = gulp.src(['css/styles.css', 'js/scripts.js'], {read: false});
   gulp.src('./components/pages/**/*.html')
     .pipe(panini({
       root: './components/pages/',
@@ -45,7 +45,6 @@ gulp.task('paniniDist', function() {
     }))
     .pipe(inject(sources))
     .pipe(replace(/(.\/builds\/dev\/)/g, ''))
-    .pipe(minify())
     .pipe(gulp.dest('./builds/dist'));
 });
 //Should be part of js task
@@ -104,7 +103,7 @@ gulp.task('browser-sync', function() {
     browserSync.init({
         server: {
             baseDir: "./",
-            index: "builds/dev/index.html"
+            index: "builds/dev/tutorial.html"
         }
     });
 });
