@@ -1,7 +1,10 @@
 function slideIn() {
-	document.getElementById('menu').style.right="0";
+	document.getElementById('mobileMenu').style.right="0";
 }
 
 function slideOut() {
-	document.getElementById('menu').style.right="-120vw";
+	document.getElementById('mobileMenu').style.right="-120vw";
 }
+
+
+

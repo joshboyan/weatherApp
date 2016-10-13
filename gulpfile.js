@@ -10,8 +10,8 @@ var gulp = require('gulp'),
     babel = require('gulp-babel'),
     panini = require('panini'),
     inject = require('gulp-inject'),
-    sitemap = require('gulp-sitemap');
-
+    sitemap = require('gulp-sitemap'),
+    replace = require('gulp-replace');
 
 var jsSources = ['./components/js/*.js']; //may need to dictate specific concatenation order
 var sassSources = ['./components/sass/*.scss'];
@@ -34,7 +34,7 @@ gulp.task('panini', function() {
 
 gulp.task('paniniDist', function() {
   var target = gulp.src('./builds/dist/*.html');
-  var sources = gulp.src(['./builds/dist/css/*.css', './builds/dev/js/*.js'], {read: false});
+  var sources = gulp.src(['./css/*.css', './js/*.js'], {read: false});
   gulp.src('./components/pages/**/*.html')
     .pipe(panini({
       root: './components/pages/',
@@ -44,6 +44,7 @@ gulp.task('paniniDist', function() {
       data: './components/data/'
     }))
     .pipe(inject(sources))
+    .pipe(replace(/(.\/builds\/dev\/)/g, ''))
     .pipe(minify())
     .pipe(gulp.dest('./builds/dist'));
 });
