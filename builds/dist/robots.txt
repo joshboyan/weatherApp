@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: / 
 
-Sitemap: Your sitemaps URL here!
+Sitemap: http://joshboyan.com/minframe/sitemap.xml
