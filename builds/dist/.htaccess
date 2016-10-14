@@ -1,4 +1,4 @@
-ErrorDocument 404 ./dist/404notfound.html
+ErrorDocument 404 ./404.html
 
 <ifModule mod_gzip.c>
 mod_gzip_on Yes

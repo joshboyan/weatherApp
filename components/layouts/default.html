@@ -60,21 +60,21 @@
 			</ul>
 		</div>
 		<div id="contact" class="col5">
-			<form action="post">
+			<form name="Form" action="contact.php" method="post">
 				<label for="name">Name</label>
-				<input type="text" name="name">
-				<label for="email">Email</label>
-				<input type="text" name="email">
-				<label for="whatsUp">What's Up?</label>
-				<select name="whatsUp">
+				<input type="text" name="name" required>
+				<label for="email" id="email">Email</label>
+				<input type="text" name="email"  required>
+				<label for="subject">What's Up?</label>
+				<select name="subject">
   				<option value="help">Build me a site!</option>
   				<option value="suggestion">I have a suggestion.</option>
   				<option value="question">I have a question.</option>
   				<option value="issue">I found an issue.</option>
 				</select>
 				<label for="message">Tell me more...</label>
-				<textarea name="message" rows="5"></textarea>
-				<input type="submit">
+				<textarea name="message" rows="5" required></textarea>
+				<input type="submit" name="submit" value="Submit">
 			</form>
 		</div>
 		<section id="copy">

@@ -7,58 +7,83 @@ description: This tutorial is a step by step, basic introduction to minframe, fr
 ---
 	
 </header>
-<main id="main">
+<aside>
+	<ul>
+	<li><a href="#main">Intro</a></li>
+	<li><a href="#summary">Summary</a></li>
+	<li><a href="#getStartedTutorial">Get Started</a></li>
+	<li><a href="#npm">NPM</a></li>
+	<li><a href="#bashShell">Bash Shell</a></li>
+	<li><a href="#cli">CLI Basics</a></li>
+	<li><a href="#fileStructure">File Structure</a></li>
+	<li><a href="#gitignore">.gitignore</a></li>
+	<li><a href="#gulpfile">gulpfile.js</a></li>
+	<li><a href="#package">package.json</a></li>
+	<li><a href="#layouts">layouts</a></li>
+	<li><a href="#pages">pages</a></li>
+	<li><a href="#sass">sass</a></li>
+	<li><a href="#img">img</a></li>
+	<li><a href="#js">js</a></li>
+	<li><a href="#dev">builds/dev</a></li>
+	<li><a href="#dist">builds/dist</a></li>
+	<li><a href="#htaccess">.htaccess</a></li>
+	<li><a href="#contactProcess">contact.php</a></li>
+	<li><a href="#robots">robots.txt</a></li>
+	<li><a href="#robots">humans.txt</a></li>
+	<li><a href="#tutorialGrid">The Grid</a></li>
+	</ul>
+</aside>
+<div class="tutorialMain" id="main">
 <h1><strong>min</strong>imal <strong>frame</strong>work Tutorial</h1>
-<h2>A basic introduction to minframe, front end frameworks and build&nbsp;tools</h2>
+<h2>A basic introduction to minframe, front-end frameworks and build&nbsp;tools</h2>
 <section id="summary">
 	<p>This tutorial is for people who have built a few websites and are familiar with HTML and CSS as well as directory structures and file paths. It assumes that you know little to nothing about npm, build-tools or front-end frameworks. Feel free to skip around if you are a little more advanced and are just looking for specific information.</p>
 </section><!--/#summary-->
-<section id="getStarted">	
+<section id="getStartedTutorial">	
 	<h2>Get Started</h2>
-	<div class="section">
+	<section id="npm">
+		<h4>NPM</h4>
 	<div class="col6">
-	<h4>NPM</h4>
-	<p>minframe requires that you have <a href="https://nodejs.org/en/">node.js</a> installed on your machine. Node.js comes with a package manager (NPM) and is used to install and manage bits of open source code others in the community have written. This open source community allows us to buuild powerful applications much more quickly by combining existing code to perform tasks. minframe uses npm to automate many repetitive and time consuming development tasks. This lets you build sites better and faster!</p>
+	<p>minframe requires that you have <a href="https://nodejs.org/en/">node.js</a> installed on your machine. Node.js comes with a package manager called <a href="https://www.npmjs.com/">NPM</a> and is used to install and manage bits of open source code others in the community have written. This open source community allows us to build powerful applications much more quickly by combining existing code to perform tasks. minframe uses npm to automate many repetitive and time consuming development tasks. This lets you build sites better and faster!</p>
 	</div>
 	<div class="col6">
 		<a href="https://nodejs.org/en/">
-			<h4>node.js</h4>
 			<img src="%img/nodejs.jpg" alt="nodejs.org">
 		</a>
 	</div>
-	</div>
-	<div class="section">
+	</section>
+	<section id="bashShell">
+		<h4>Bash Shell</h4>
 		<div class="col6">
-	<p>If you are using a Windows machine you will want to download a <a href="http://win-bash.sourceforge.net/">bash command line interface (CLI) shell</a>. The default terminal in windows uses different commands than the Unix based shell for Linux and Mac. Every CLI tutorial in web design uses the bash shell so don't make it hard on yourself!</p>
+	<p>If you are using a Windows machine you will want to download a <a href="http://win-bash.sourceforge.net/">bash command line interface (CLI) shell</a>. The default terminal in windows uses different commands than the Unix based shell for Linux and Mac. Every CLI tutorial in web design uses the bash shell so don't make it hard on yourself! If you are using a Mac or Linux you are already good to go!</p>
 	</div>
 	<div class="col6">
 		<a href="http://win-bash.sourceforge.net/">
-			<h4>win-bash</h4>
 			<img src="%img/winbash.jpg" alt="win-bash">
 		</a>
 	</div>
-</div>
-	<div class="section">
+</section>
+	<section id="#cli">
+		<h4>Command Line Basics</h4>
 	<div class="col6">
-	<p>We will not be doing anything beyond basic commands in the bash CLI. If you have never used the bash CLI before it would be beneficial to you to take this free course on <a href="https://www.udacity.com/course/linux-command-line-basics--ud595">Udacity.com; Linux Command Line Basics.</a></p>
+	<p>We will not be doing anything beyond basic commands in the bash CLI. If you have never used the bash CLI before it would be beneficial to you to take this free course on <a href="https://www.udacity.com/course/linux-command-line-basics--ud595">Udacity.com: Linux Command Line Basics.</a></p>
 	</div>
 	<div class="col6">
 	<a href="https://www.udacity.com/course/linux-command-line-basics--ud595">
-			<h4>Udacity</h4>
 			<img src="%img/udacity.jpg" alt="Udacity.com">
 		</a>
 	</div>
-</div>
+</section>
 
 <p>Once you have NPM and feel confident enough to type a few commands: </p>
 	<ol>
-		<li>Open your terminal and navigate to where you would like to download the&nbsp;package.<br>
+		<li>Open your terminal and navigate to where you would like to download the package.<br>
 			<code>cd desktop</code>
 		</li>
 		<li>Install minframe<br>
 			<code>npm install minframe</code>
 		</li>
-		<li>Change directories into the package you just&nbsp;installed.<br>
+		<li>Change directories into the package you just installed.<br>
 			<code>cd minframe</code>
 		</li>
 		<li>Install the node_module dependencies.<br>
@@ -72,20 +97,30 @@ description: This tutorial is a step by step, basic introduction to minframe, fr
 		</li>
 
 	</ol>
-	</div>	
+		
 </section><!--/#getStarted-->
-<section id="firstLook">
+<section id="fileStructure">
 	<h2>File Structure</h2>
 	<p>Once you have fired up the automated tools with npm in step 5 of the last section, open the minframe folder in your favorite text editor. You will notice 3 folders: <em>builds</em> <em>components</em> and <em>node_modules</em> as well as some supporting files. Let's look at the supporting files first. </p>
-
-	<h4>.gitignore</h4>
+	
+	<section id="gitignore">
+		<h4>.gitignore</h4>
+		<div class="col6">
 	<p>The <em>.gitignore</em> file is part of the 
-	<a href="https://github.com/">Github</a> and <a href="https://git-scm.com/"></a>Git ecosystem. These are used for version control. This means keeping track of old copies of your websites, apps and other programs you are building. These are not required to use minframe but highly reccomended for anyone who writes code. You can follow the links in the begining of this paragraph to download Git and find tutorials on how to use Git and GitHub. <a href="http://gitimmersion.com/">Git Immersion</a> is another great resource to help you use this invaluable tool.</p>
+	<a href="https://github.com/">Github</a> and <a href="https://git-scm.com/">Git</a> ecosystem. These are used for version control. This means keeping track of old copies of your websites, apps and other programs you are building. These are not required to use minframe but highly reccomended for anyone who writes code. You can follow the links in the begining of this paragraph to download Git and find tutorials on how to use Git and GitHub. <a href="http://gitimmersion.com/">Git Immersion</a> is another great resource to help you use this invaluable tool.</p>
 	
 	<p>The .gitignore file itself is a configuration file for the git client on your local machine. We use it to tell Git which directories and files we want ot ignore or <span>NOT</span> keep track of in our version control. We generally do not want to keep track of configuration files since everyone's machine is set up differently. In minframe, we want to ignore all the build directories because they are built from our components directory. Keeping track of them will slow down git commits and pushes. It is mainly just excessive.</p>
+	</div>
+	<div class="col6">
+		<img src="%img/gitignore.jpg" alt=".gitignore file">
+	</div>
+	</section>
 
-	<h4>gulpfile.js</h4>
-	<p><a href="http://gulpjs.com/">Gulp</a> is a javascript utililty used to automate tasks in yuo rdevelopment workflow. It is a plugin based system whare each plugin does one thing very well. There are many more plugins available and I suggest you Google <em>gulp-whatever-you-need to do</em>if you require a utility inaddition to what minframe provides.</p>
+	<section id="gulpfile">
+		<h4>gulpfile.js</h4>
+		<div class="col6">
+	
+	<p><a href="http://gulpjs.com/">Gulp</a> is a javascript utililty used to automate tasks in yuo rdevelopment workflow. It is a plugin based system whare each plugin does one thing very well. There are many more plugins available and I suggest you Google <em>gulp-whatever you need to do</em> if you require a utility inaddition to what minframe provides.</p>
 
 	<p>The gulpfile.js is the set of instructions that is executed when you type the <em>gulp</em> command in your CLI. It controls the how each package we installed with NPM interfaces with your code. We do this in 5 steps:</p>
 
@@ -98,8 +133,246 @@ description: This tutorial is a step by step, basic introduction to minframe, fr
 			gulp - Runs in the background while we are working.<br>
 			gulp dist - Creates a finished package to upload to a server via FTP.</li>
 	</ol>
+	<p>You may want to change the page that initially loads with BrowserSync when working on pages other than index.html. to do this, search for the browse-sync gulp task and change the index to ./builds/dev/<em>fileYouWantToLoad</em>.html.</p>
+	</div>
+	<div class="col6">
+		<img src="%img/gulpfile.jpg" alt="gulpfile.js file">
+	</div>
+	</section>
+	<section id="package">
+		<h4>package.json</h4>
+		<div class="col6">	
 
+	<p>The package.json file is very simply an outline of the project. It contains information about the project, it's Git repo and all the node.js packages associated with the project. NPM uses this list to find all of the dependencies when you run <code>npm&npsp;install</code> from the bash CLI while you are iside of the project directory.</p>
+	</div>
+	<div class="col6">
+		<img src="%img/packagejson.jpg" alt="package.json file">
+	</div>
+	</section>
 
-</section>
+	<h3>components Directory</h3>
 
-</main>
+	<p>All of the descriptions in this section assume that you have ran the <code>gulp</code> command in NPM.</p>
+
+	<section id="layouts">
+		<h4>layouts</h4>
+		<div class="col6">
+		<p>Layouts are the basis of DRY templating using <a href="http://foundation.zurb.com/sites/docs/panini.html">Panini</a>. You build out your head, header, footer and nav 1 time in the default.html layout.Default.html is the layout all pages will default to unless you specifically call out a different layout in the Front Matter markdown at the top of each page.</p>
+
+		<p>Notice the double curly braces <code>&#123;&#123;&#125;&#125;</code> in the head of default.html. Each of these double curly braces correlates with the Front Matter markdown at the top of each page. minframe includes basic meta tags and <a href="http://ogp.me/">Open Graph protocol</a> tags. You can also add any other information that might need to vary from page to page such as <a href="http://schema.org/">schema.org</a> microdata. Remember, one layout MUST be named default.html.</p>
+		</div>
+		<div class="col6">
+			<img src="%img/layouts.jpg" alt="default.html layout file">
+		</div>
+	</section>
+	<section id="pages">
+		<h4>pages</h4>
+		<div class="col6">
+			<p>Pages are the second component to DRY templating. This folder is where you create unique pages that will use the layout you call with the <a href="http://assemble.io/docs/YAML-front-matter.html">Front Matter</a> markup at the top of the page. Notice how the terms to the left of the semi-colon (except layout:) correlate with the terms in the double curly braces in the default.html head.</p>
+
+			<p>Every time you save a file in the <em>pages</em> or <em>layouts</em> directories, the files are compiled and sent to the <em>builds/dev</em> directory where browserSync displays them in Chrome.</p>
+		</div>
+		<div class="col6">
+			<img src="%img/pages.jpg" alt="index.html pages file">
+		</div>
+	</section>
+	<section id="sass">
+		<h4>sass</h4>
+		<div class="col6">
+			<p><a href="http://sass-lang.com/guide">Syntastically awesome style sheets</a>, or Sass is a CSS extension langauge that needs to be compiled into CSS to run in the browser. It allows you to assign variables, create mixins, add logic to your stylesheets and much more. Check out their documentation for specifics of the langauge.</p>
+
+			<p>minframe clears many browser default styles with <a href="https://necolas.github.io/normalize.css/">normalize.css</a> and the styles.scss file comes with nested markup allowing you to access elements without filling your HTML with helper classes. We include three common media queries for larger screens for your convenience. It also seperates out the grid, mixins and variables for clarity then imports them into a single style sheet while compiling. You can add additional stylesheets by following the <code>_filename.sccs</code> naming convention and adding <code>@import&npsp;"filename";</code> to styles.scss.</p>
+
+			<p>When you save any file in the <em>sass</em> directory all the scss files are concatenated and compiled into CSS3. If there is an error in your styles the CLI will show an error and tell you which line it occurs on. If everything is good, the auto-prefixer adds any browser prefixes your code needs going back 4 versions in all major browsers based on info from <a href="http://caniuse.com/">caniuse.com</a> and your browser will automatically update to reflect the changes.</p>
+
+		</div>
+		<div class="col6">
+			<img src="%img/styles.jpg" alt="styles.scss Sass file">
+			<img src="%img/variables.jpg" alt="_variables.scss Sass file">
+		</div>
+	</section>
+	<section id="img">
+		<h4>img</h4>
+		<p>The <em>img</em> directory functions exactly like you would expect it to. Place images in the folder for use on the various pages and layouts. All images will go through automatic "lossless" compression to optimize them for speed without affecting quality. When referencing images, use the following filepath: <code>src="&#37;img/<em>yourImageName</em>"</code></p>
+	</section>
+	<section id="js">
+		<h4>js</h4>
+		<p>The <em>js</em> directory also operates a little differently than you may be used to. All of your scripts go here and you can divide them into as many files as make sense for what you are doing. If you are using <a href="http://es6-features.org/">ES6</a> when you hit save your scripts are first ran through the <a href="http://babeljs.io/">Babel compiler</a> to generate code that can run in the browser. Then all of your scripts are concantenated into one file to reduce server response time. The "use strict" command is added to the file. The file is then ran through <a href="http://jshint.com/">JSHint</a> to find any errors in your code. If one is found the process will stop and notify you exactly what and where the problem is in the CLI. If everything is good your browser will automatically update to reflect the changes. You may notice the concatenated file is referenced in the same way as the images on the default.html layout: <code>src="&#37;js/scripts.js</code>.</p>
+	</section>
+	<section id="dev">
+		<h3>builds/dev Directory</h3>
+		<p>The builds directory contains all of the concantenated and compiled code from your components files. All images have been minified and all the code can run natively in the browser. This is where <a href="https://www.browsersync.io/">Browsersync</a> is watching the files and looking for changes.</p>
+	</section>
+	<section id="dist">
+		<h3>builds/dist Directory</h3>
+		<p>This is minified and compressed files ready for FTP upload to your server are stored after you run <code>gulp&npsp;dist</code>. <code>gulp&npsp;dist</code> generates a sitemap for all the files you have created and stores it hear. There are also some additional files that you generally want to include on your server such as a <em>contact_process.php</em> and <em>.htaccess</em>.</p>
+	</section>
+	<section id="htaccess">
+		<h3>.htaccess</h3>
+			<p>The <em>.htaccess</em> file is a configuration file for Apache servers. The main thing it does is direct all 404 errors on our domain to <em>404.html</em>. It also does some pretty great things like enablig gzip to speed up our load times and changing our sites caching settings so repeat visitors will still have our assets on their machine speeding up their load time.</p>
+			
+	</section>
+	<section id="contactProcess">
+		<h3>contact.php</h3>
+		<div class="col6">
+			<p>This is the file that processes our contact form, validates and sanitizes the inputs on our server and sends us an email with the info. The file has a sample form with some common feilds at the top that you can use as a guide to build your own form. Of course you could also copy and paste it right into yuor HTML if it suits your purposes. Make sure to change <br><code>$EmailTo= "yourName@email.com";</code></p>
+
+			<p>This script also stores all of the submitted form info in a .csv file which is a comma deliminated file that can easily be eported to spreadsheets. If there are errors the default is to display a javascript alert about the specific issue. If you would like to direct them to error/success pages after simply change which is commented out at the bottom of the file.</p>
+		</div>
+		<div class="col6">
+			<img src="%img/contact.jpg" alt="cotact_process.php builds/dist file">
+		</div>
+	</section>
+	<section id="robots">
+		
+		<div class="col6">
+			<h3>robots.txt</h3>
+			<p>Make sure to add your sitemaps URL here once you generate it!</p>
+		</div>
+		<div class="col6">
+			<h3>humans.txt</h3>
+			<p>Take credit for your work, give your team props and talk about the project!</p>
+		</div>		
+	</section>
+</section><!--/#firstLook-->
+<section id="tutorialGrid">
+	<h2>The Grid</h2>
+	<p>The Minimal Frameworks Responsive Grid is a 12 column, mobile-first design that scales up to fit all viewports. All columns are 100% width by default until 768px. Above 768px each column is 1/12th of the viewport. So this means:</p>
+	<ul>
+		<li>2 equal columns each get the class of <code>.col6</code> because 6+6=12</li>
+		<li>3 equal columns each get the class of <code>.col4</code> because 4+4+4=12</li>
+		<li>4 equal columns each get the class of <code>.col3</code> because 3+3+3+3=12</li>
+	</ul>
+	<p>I based this grid off of the <a href="http://www.responsivegridsystem.com/">responsive grid system</a> and removed the redundant classes. It is built with Sass mixins eliminating much of the <code>div="class class class"</code> markup that polutes the HTML files of other frameworks.</p>
+
+	<p>The <code>section</code> tag itself defines horizontal sections and clears floats much like <code>div class="row"</code> in Bootstrap. You also have the option of using <code>div class="section"</code> if that makes more semeantic sense. Columns only require one class <code>col#</code> where <code>#</code> is how many units out of twelve the column spans. Go ahead, resize your browser.</p>
+	<p>.section</p>
+	<div class="section">
+	<div class="col1">
+		<p>.col1</p>
+	</div>
+	<div class="col1">
+		<p>.col1</p>
+	</div>
+	<div class="col1">
+		<p>.col1</p>
+	</div>
+	<div class="col1">
+		<p>.col1</p>
+	</div>
+	<div class="col1">
+		<p>.col1</p>
+	</div>
+	<div class="col1">
+		<p>.col1</p>
+	</div>
+	<div class="col1">
+		<p>.col1</p>
+	</div>
+	<div class="col1">
+		<p>.col1</p>
+	</div>
+	<div class="col1">
+		<p>.col1</p>
+	</div>
+	<div class="col1">
+		<p>.col1</p>
+	</div>
+	<div class="col1">
+		<p>.col1</p>
+	</div>
+	<div class="col1">
+		<p>.col1</p>
+	</div>
+	<div class="col2">
+		<p>.col2</p>
+	</div>
+	<div class="col2">
+		<p>.col2</p>
+	</div>
+	<div class="col2">
+		<p>.col2</p>
+	</div>
+	<div class="col2">
+		<p>.col2</p>
+	</div>
+	<div class="col2">
+		<p>.col2</p>
+	</div>
+	<div class="col2">
+		<p>.col2</p>
+	</div>
+	<div class="col3">
+		<p>.col3</p>
+	</div>
+	<div class="col3">
+		<p>.col3</p>
+	</div>
+	<div class="col3">
+		<p>.col3</p>
+	</div>
+	<div class="col3">
+		<p>.col3</p>
+	</div>
+	<div class="col4">
+		<p>.col4</p>
+	</div>
+	<div class="col4">
+		<p>.col4</p>
+	</div>
+	<div class="col4">
+		<p>.col4</p>
+	</div>
+	<div class="col5">
+		<p>.col5</p>
+	</div>
+	<div class="col7">
+		<p>.col7</p>
+	</div>
+	<div class="col6">
+		<p>.col6</p>
+	</div>
+	<div class="col6">
+		<p>.col6</p>
+	</div>
+	<div class="col7">
+		<p>.col7</p>
+	</div>
+	<div class="col5">
+		<p>.col5</p>
+	</div>
+	<div class="col8">
+		<p>.col8</p>
+	</div>
+	<div class="col4">
+		<p>.col4</p>
+	</div><div class="col9">
+		<p>.col9</p>
+	</div>
+	<div class="col3">
+		<p>.col3</p>
+	</div>
+	<div class="col10">
+		<p>.col10</p>
+	</div>
+	<div class="col2">
+		<p>.col2</p>
+	</div>
+	<div class="col11">
+		<p>.col11</p>
+	</div>
+	<div class="col1">
+		<p>.col1</p>
+	</div>
+	<div class="col12 ">
+		<p>.col12</p>
+	</div>
+	<div>
+</section><!--/#theGrid-->
+<section id="wrapUp">
+	<h2>Go Forth and Code!</h2>
+	<p>That pretty much sums up what minframe has to offer. If anyting is not explained clearly enough please shoot me a message with the contac form below. If you find a bug or an issue please submit it to the <a href="https://github.com/joshboyan/minframe/issues">GitHub repo</a>. If you love or hate minframe you are also welcome to shoot me an message. All I ask is that you go build cool things!</p>
+	
+</section><!--/#wrapUp-->
+
+</div><!--/#main-->
