@@ -1,7 +1,8 @@
 {
   "name": "minframe",
-  "version": "0.0.1",
-  "description": "minframe is a modern HTML5, mobile-first front-end framework built with Sass and Gulp on a 12 column responsive grid. The framework boasts all of the modern accessiblility features and tools developers use in builds but none of the style bloat. The only boilerplate styling is normalize.scss, our 12 column responsive grid and basic html5 Sass nesting. ",
+  "version": "1.0.0",
+  "homepage": "http://joshboyan.com/minframe/index.html",
+  "description": "minframe is a modern HTML5, mobile-first front-end framework built with Sass and Gulp on a 12 column responsive grid. The framework boasts all of the modern accessiblility features and tools developers use in builds but none of the style bloat.",
   "main": "index.js",
   "keywords": [
     "responsive",

@@ -41,22 +41,6 @@ minframe is a modern HTML5, mobile-first framework built with Sass and Gulp on a
 
  5. Open _components_ folder with your favorite text editor and create HTML markup in _layouts_ and _pages_, add your Sass styles to _scss_ and JavaScript to _js_.
 
-###NPM
-
- 1. Open your terminal and navigate to where you would like to download the package.
- `npm install minframe`
-
- 2. Change directories into the repo you just cloned.
- `cd minframe`
-
- 3. Install the node_module dependencies.
- `npm install`
-
- 4. Start up the automated build and open chrome with Live Reload.
- `gulp`
-
- 5. Open _components_ folder with your favorite text editor and create HTML markup in _layouts_ and _pages_, add your Sass styles to _scss_ and JavaScript to _js_.
-
 
 
 

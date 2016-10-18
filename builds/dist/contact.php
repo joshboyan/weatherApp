@@ -21,6 +21,7 @@
 
 <?php
 
+$Referer = $_SERVER['HTTP_REFERER'];
 // Gets posted data from the HTML form fields and creates local variables. The items with the ' marks around them are the name values from the fields in the HTML form. Note, the first three variables are required for all email messages.
 
 $EmailFrom = Trim(stripslashes($_POST['email'])); 
@@ -45,10 +46,10 @@ if (!filter_var(Trim($EmailFrom), FILTER_VALIDATE_EMAIL)) {
 } 
 if (Trim($Name)=="") $validationOK=false;
 if (!$validationOK) {
-//print "<meta http-equiv=\"refresh\" content=\"0;URL=error.html\">";
+print "<meta http-equiv=\"refresh\" content=\"0;URL=$Referer\">";
 echo "<script type='text/javascript'>alert('It seems your email address is invalid!');</script>";
 exit;
-}
+}	
 
 // This section below creates a file called form-data.csv (if one doesn't already exist) in the contacts/ folder (you should have created). The purpose of this is to collect all your form contacts in one .csv file for use later.
 
@@ -82,13 +83,13 @@ $success = mail($EmailTo, $Subject, $Body, "From: <$EmailFrom>");
 
 // If the page validates and there are no errors in the PHP, this line redirect to ok.html page, which is the "success page" for the form submission.
 
-if ($success){
-  //print "<meta http-equiv=\"refresh\" content=\"0;URL=ok.html\">";
+if ($success){  
   echo "<script type='text/javascript'>alert('Message has been successfully sent!');</script>";
+  print "<meta http-equiv=\"refresh\" content=\"0;URL=$Referer\">";
 }
-else{
-  //print "<meta http-equiv=\"refresh\" content=\"0;URL=error.html\">";
+else{ 
   echo "<script type='text/javascript'>alert('There was an error with the message!');</script>";
+   print "<meta http-equiv=\"refresh\" content=\"0;URL=$Referer\">";
 }
 //Should I change these two meta tags to HTML5: <meta charset="UTF-8">?
 
