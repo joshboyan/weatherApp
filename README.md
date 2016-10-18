@@ -39,10 +39,10 @@ minframe is a modern HTML5, mobile-first framework built with Sass and Gulp on a
 
 
  4. Change the GitHub remote repository to one you own.
- 'git remote set-url origin https://github.com/USERNAME/OTHERREPOSITORY.git'
+ `git remote set-url origin https://github.com/USERNAME/OTHERREPOSITORY.git`
 
  5. Verify the remote URL has changed.
- 'git remote -v'
+ `git remote -v`
 
  6. Install the node_module dependencies.
  `npm install`
@@ -53,7 +53,7 @@ minframe is a modern HTML5, mobile-first framework built with Sass and Gulp on a
  8. Open _components_ folder with your favorite text editor and create HTML markup in _layouts_ and _pages_, add your Sass styles to _scss_ and JavaScript to _js_.
 
  9. To stop automated workflow tools.
- 'ctr c OR cmd c'
+ `ctr c OR cmd c`
 
 
 
