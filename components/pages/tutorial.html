@@ -9,12 +9,12 @@ description: This tutorial is a step by step, basic introduction to minframe, fr
 </header>
 <aside>
 	<ul>
-	<li><a href="#main">Intro</a></li>
 	<li><a href="#summary">Summary</a></li>
-	<li><a href="#getStartedTutorial">Get Started</a></li>
+	<li><a href="#getStartedTutorial">Dependecies</a></li>
 	<li><a href="#npm">NPM</a></li>
 	<li><a href="#bashShell">Bash Shell</a></li>
 	<li><a href="#cli">CLI Basics</a></li>
+	<li><a href="#download">Download</a></li>
 	<li><a href="#fileStructure">File Structure</a></li>
 	<li><a href="#gitignore">.gitignore</a></li>
 	<li><a href="#gulpfile">gulpfile.js</a></li>
@@ -34,47 +34,42 @@ description: This tutorial is a step by step, basic introduction to minframe, fr
 	</ul>
 </aside>
 <div class="tutorialMain" id="main">
+	<section id="summary">
 <h1><strong>min</strong>imal <strong>frame</strong>work Tutorial</h1>
 <h2>A basic introduction to minframe, front-end frameworks and build&nbsp;tools</h2>
-<section id="summary">
 	<p>This tutorial is for people who have built a few websites and are familiar with HTML and CSS as well as directory structures and file paths. It assumes that you know little to nothing about npm, build-tools or front-end frameworks. Feel free to skip around if you are a little more advanced and are just looking for specific information.</p>
 </section><!--/#summary-->
 <section id="getStartedTutorial">	
-	<h2>Get Started</h2>
+	<h2>Dependecies</h2>
 	<section id="npm">
 		<h4>NPM</h4>
 	<div class="col6">
 	<p>minframe requires that you have <a href="https://nodejs.org/en/">node.js</a> installed on your machine. Node.js comes with a package manager called <a href="https://www.npmjs.com/">NPM</a> and is used to install and manage bits of open source code others in the community have written. This open source community allows us to build powerful applications much more quickly by combining existing code to perform tasks. minframe uses npm to automate many repetitive and time consuming development tasks. This lets you build sites better and faster!</p>
 	</div>
 	<div class="col6">
-		<a href="https://nodejs.org/en/">
 			<img src="%img/nodejs.jpg" alt="nodejs.org">
-		</a>
 	</div>
 	</section>
 	<section id="bashShell">
 		<h4>Bash Shell</h4>
 		<div class="col6">
-	<p>If you are using a Windows machine you will want to download a <a href="http://win-bash.sourceforge.net/">bash command line interface (CLI) shell</a>. The default terminal in windows uses different commands than the Unix based shell for Linux and Mac. Every CLI tutorial in web design uses the bash shell so don't make it hard on yourself! If you are using a Mac or Linux you are already good to go!</p>
+	<p>If you are using a Windows machine you will want to download a bash <a href="http://win-bash.sourceforge.net/">command line interface</a> (CLI) shell. The default terminal in windows uses different commands than the Unix based shell for Linux and Mac. Every CLI tutorial in web design uses the bash shell so don't make it hard on yourself! If you are using a Mac or Linux you are already good to go!</p>
 	</div>
 	<div class="col6">
-		<a href="http://win-bash.sourceforge.net/">
 			<img src="%img/winbash.jpg" alt="win-bash">
-		</a>
 	</div>
 </section>
-	<section id="#cli">
+	<section id="cli">
 		<h4>Command Line Basics</h4>
 	<div class="col6">
-	<p>We will not be doing anything beyond basic commands in the bash CLI. If you have never used the bash CLI before it would be beneficial to you to take this free course on <a href="https://www.udacity.com/course/linux-command-line-basics--ud595">Udacity.com: Linux Command Line Basics.</a></p>
+	<p>We will not be doing anything beyond basic commands in the bash CLI. If you have never used the bash CLI before it would be beneficial to you to take this free course on Udacity.com: <a href="https://www.udacity.com/course/linux-command-line-basics--ud595">Linux Command Line Basics.</a></p>
 	</div>
 	<div class="col6">
-	<a href="https://www.udacity.com/course/linux-command-line-basics--ud595">
 			<img src="%img/udacity.jpg" alt="Udacity.com">
-		</a>
 	</div>
 </section>
-
+</section><!--/#getStarted-->
+<section id="download">
 <p>Once you have NPM and feel confident enough to type a few commands: </p>
 	<ol>
 		<li>Open your terminal and navigate to where you would like to download the package.<br>
@@ -97,12 +92,11 @@ description: This tutorial is a step by step, basic introduction to minframe, fr
 		</li>
 		<li>Open _components_ folder with your favorite text editor and create HTML markup in _layouts_ and _pages_, add your Sass styles to _scss_ and JavaScript to _js_.</li>
 		<li>To stop the automated workflow tools, use:<br>
-			<code>ctr c OR cmd c</code>
+			<code>ctr c /OR/ cmd c</code>
 		</li>
 
 	</ol>
-		
-</section><!--/#getStarted-->
+</section>		
 <section id="fileStructure">
 	<h2>File Structure</h2>
 	<p>Once you have fired up the automated tools with npm in step 5 of the last section, open the minframe folder in your favorite text editor. You will notice 3 folders: <em>builds</em> <em>components</em> and <em>node_modules</em> as well as some supporting files. Let's look at the supporting files first. </p>
@@ -147,7 +141,7 @@ description: This tutorial is a step by step, basic introduction to minframe, fr
 		<h4>package.json</h4>
 		<div class="col6">	
 
-	<p>The package.json file is very simply an outline of the project. It contains information about the project, it's Git repo and all the node.js packages associated with the project. NPM uses this list to find all of the dependencies when you run <code>npm&npsp;install</code> from the bash CLI while you are iside of the project directory.</p>
+	<p>The package.json file is very simply an outline of the project. It contains information about the project, it's Git repo and all the node.js packages associated with the project. NPM uses this list to find all of the dependencies when you run <code>npm&nbsp;install</code> from the bash CLI while you are iside of the project directory.</p>
 	</div>
 	<div class="col6">
 		<img src="%img/packagejson.jpg" alt="package.json file">
@@ -205,12 +199,11 @@ description: This tutorial is a step by step, basic introduction to minframe, fr
 	</section>
 	<section id="dev">
 		<h3>builds/dev Directory</h3>
-		<p>The builds directory contains all of the concantenated and compiled code from your components files. All images have been minified and all the code can run natively in the browser. This is where <a href="https://www.browsersync.io/">Browsersync</a> is watching the files and looking for changes.</p>
+		<p>The builds directory contains all of the concantenated and compiled code from your components files. This is the point where all your Sass and Javascript are linted and errors are served to your CLI. All images have been minified and all the code can run natively in the browser. <a href="https://www.browsersync.io/">Browsersync</a> is watching the files and looking for changes in this directory.</p>
 	</section>
 	<section id="dist">
 		<h3>builds/dist Directory</h3>
 		<p>This is minified and compressed files ready for FTP upload to your server are stored after you run <code>gulp&npsp;dist</code>. <code>gulp&npsp;dist</code> generates a sitemap for all the files you have created and stores it hear. There are also some additional files that you generally want to include on your server such as a <em>contact_process.php</em> and <em>.htaccess</em>.</p>
-	</section>
 	<section id="htaccess">
 		<h3>.htaccess</h3>
 			<p>The <em>.htaccess</em> file is a configuration file for Apache servers. The main thing it does is direct all 404 errors on our domain to <em>404.html</em>. It also does some pretty great things like enablig gzip to speed up our load times and changing our sites caching settings so repeat visitors will still have our assets on their machine speeding up their load time.</p>
@@ -237,6 +230,7 @@ description: This tutorial is a step by step, basic introduction to minframe, fr
 			<h3>humans.txt</h3>
 			<p>Take credit for your work, give your team props and talk about the project!</p>
 		</div>		
+	</section>
 	</section>
 </section><!--/#firstLook-->
 <section id="tutorialGrid">
@@ -375,7 +369,7 @@ description: This tutorial is a step by step, basic introduction to minframe, fr
 </section><!--/#theGrid-->
 <section id="wrapUp">
 	<h2>Go Forth and Code!</h2>
-	<p>That pretty much sums up what minframe has to offer. If anyting is not explained clearly enough please shoot me a message with the contac form below. If you find a bug or an issue please submit it to the <a href="https://github.com/joshboyan/minframe/issues">GitHub repo</a>. If you love or hate minframe you are also welcome to shoot me an message. All I ask is that you go build cool things!</p>
+	<p>That pretty much sums up what minframe has to offer. If anyting is not explained clearly enough please shoot me a message with the contac form below. If you find a bug or an issue please submit it to the <a href="https://github.com/joshboyan/minframe/issues">GitHub repo</a>. If you love or hate minframe you are also welcome to shoot me a message. All I ask is that you go build cool things!</p>
 	
 </section><!--/#wrapUp-->
 
