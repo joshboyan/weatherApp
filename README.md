@@ -55,6 +55,9 @@ minframe is a modern HTML5, mobile-first framework built with Sass and Gulp on a
  9. To stop automated workflow tools.
  `ctr c OR cmd c`
 
+ ##Tutorial
+ [http://joshboyan.com/minframe/tutorial.html](minframe tutorial)
+
 
 
 
