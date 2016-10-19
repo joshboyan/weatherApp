@@ -246,9 +246,6 @@ html {
                 img {
                     width: 95%;
                 }
-                .col6:nth-of-type(4) {
-                    margin-top: -5.063rem;
-                }
             }
         }
         //tutorial.html styles
@@ -278,9 +275,9 @@ html {
                 width: 90%;
                 margin: 0 5% 1.5rem 5%;
             }
-        }
-        .col6:nth-of-type(4) {
-            margin-top: -5.063rem;
+            .col6:nth-of-type(4) {
+                margin-top: -5.063rem;
+            }
         }
     }
     #fileStructure {
@@ -405,6 +402,15 @@ html {
                     }
                 }
             }
+            
+                ol {
+                    width: 60%;
+                    margin: 0 20%;
+                    li {
+                        margin-bottom: 1rem;
+                    }
+                }
+            
             footer {
                 img {
                     width: 100%;
@@ -461,15 +467,12 @@ html {
                 li {
                     list-style-type: none;
                     padding-left: 10%;
-                    
                     .active {
                         color: $color5;
                         &:after {
                             right: 0;
                         }
                     }
-
-                    
                 }
                 li:nth-of-type(1),
                 li:nth-of-type(2),

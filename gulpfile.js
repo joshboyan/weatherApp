@@ -54,7 +54,7 @@ gulp.task('paniniDist', function() {
 gulp.task('lint', function() {
   return gulp.src('./components/js/*.js')
     .pipe(jshint())
-    .pipe(jshint.reporter('default'));
+    .pipe(jshint.reporter('default'))
 });
 
 gulp.task('js', function() {
@@ -68,6 +68,10 @@ gulp.task('js', function() {
 
 gulp.task('jsDist', function () {
         gulp.src(jsSources)
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(concat('scripts.js'))
         .pipe(uglify())
         .pipe(gulp.dest('builds/dist/js'))
 });

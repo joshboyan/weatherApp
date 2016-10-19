@@ -229,19 +229,27 @@ description: minframe is a modern HTML5, mobile-first front-end framework built 
 	<div class="col12">
 	<h4>Git CLI</h4>
 	<ol>
-		<li>Clone the repo to your local machine from your&nbsp;terminal.<br><code>git clone https://github.com/joshboyan/minframe.git</code></li>
-		<li>Change directories into the repo you just&nbsp;cloned.<br>
-			<code>cd minframe</code>
+		<li>Open your terminal and navigate to where you would like to download the package.<br>
+			<code>cd desktop</code>
 		</li>
+		<li>Download minframe<br>
+			<code>git clone https://github.com/joshboyan/minframe.git</code>
+		</li>
+		<li>Change directories into the package you just installed.<br>
+			<code>cd minframe</code>
+		<li>Change the GitHub remote repository to one you own.<br>
+			<code>git remote set-url origin https://github.com/USERNAME/OTHERREPOSITORY.git</code></li>
+		<li>Verify the remote URL has changed.<br>
+			<code>git remote -v</code></li>
 		<li>Install the node_module dependencies.<br>
 			<code>npm install</code>
 		</li>
-		<li>Start up the automated build and open chrome with Live&nbsp;Reload.<br>
-			<code>gulp</code>
+		<li>Start up the automated build and open chrome with Live Reload.<br>
+			<code>gulp</code><br>
 		</li>
 		<li>Open _components_ folder with your favorite text editor and create HTML markup in _layouts_ and _pages_, add your Sass styles to _scss_ and JavaScript to _js_.</li>
-		<li>When you are finished, create your&nbsp;distribution&nbsp;build.<br>
-			<code>gulp dist</code>
+		<li>To stop the automated workflow tools, use:<br>
+			<code>ctr c /OR/ cmd c</code>
 		</li>
 	</ol>
 	</div>
