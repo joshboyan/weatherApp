@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--this is the head, header, nav and footer that will be compiled to any page that you call layout:default in the top Front Matter markdown-->
 <html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
 	<meta charset="utf-8">
@@ -12,9 +13,9 @@
 	<meta property="og:image" content="{{image}}" />
 	<meta property="og:description" content="{{description}}" />
 	<title>{{title}}</title>
-	<link rel="icon" type="image/png" href="./img/favicon.png">
-	<link rel="icon" type="image/ico" href="img/logo.ico">
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet">
+	<!--all file paths need to start with % to compile correctly inot different builds. For example: %img/, %css/, %js/-->
+	<link rel="icon" type="image/png" href="%img/favicon.png">
+	<link rel="icon" type="image/ico" href="%img/logo.ico">
 	<link href="%css/styles.css" rel="stylesheet">
 	<!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
@@ -24,65 +25,15 @@
 	<header>
 		<a href="#main" class="sr-only">Skip to content</a>
 		<nav>
-			<div class="navbar">
-			<a href="%index.html"><img src="%img/minframeLogoInverse.png" alt="minframe Logo"></a>
-			<i onClick="slideIn()" class="fa fa-bars"></i>
-			<ul id="menu">				
-				<li><a href="index.html#getStarted">Get Started</a></li>
-				<li><a href="%tutorial.html">Tutorial</a></li>
-				<li><a href="https://github.com/joshboyan/minframe" target="_blank">Github</a></li>
-				<li><a href="https://www.npmjs.com/~joshboyan" target="_blank">npm</a></li>
-				<li><a href="#contact">Contact</a></li>
-			</ul>
-			</div>
-			<ul id="mobileMenu">
-				<li><i onClick="slideOut()" class="fa fa-times"></i></li>
-				<li><a onClick="slideOut()" href="index.html#getStarted">Get Started</a></li>
-				<li><a href="%tutorial.html">Tutorial</a></li>
-				<li><a href="https://github.com/joshboyan/minframe" target="_blank">Github</a></li>
-				<li><a href="https://www.npmjs.com/~joshboyan" target="_blank">npm</a></li>
-				<li><a onClick="slideOut()" href="#contact">Contact</a></li>
-			</ul>
+			
 		</nav>
-
+	<!--header closes on each page for unique hero images etc-->
+	<!--body tag injects unique pages from pages directory-->
 {{> body}}
 
 	<footer>
-		<div class="col5">
-			<p>Hi! I'm Josh, a web designer and developer out of Portland, OR. I built minframe to help others build websites quickly and easily. It is under the MIT liscense so feel free to alter and customize it in any way. If you need something more complicated I would be happy to build it for you, just use the form <span class="mobileFormPosition">below </span><span class="tabletFormPosition">to the right </span>to tell me about your project. Any issues should be submitted to the&nbsp;<a href="https://github.com/joshboyan/minframe/issues" target="_blank">GitHub&nbsp;repo</a>.</p>
-		</div>
-		<div class="col2">
-			<img src="%img/profile.jpg" alt="Josh Boyan">
-			<ul>
-				<li><a href="https://www.linkedin.com/in/joshboyan" target="_blank"><i title="LinkedIn" class="fa fa-linkedin"></i></a></li>
-				<li><a href="https://github.com/joshboyan" target="_blank"><i title="GitHub" class="fa fa-github"></i></a></li>
-				<li><a href="http://codepen.io/joshboyan/" target="_blank"><i title="CodePen" class="fa fa-codepen"></i></a></li>
-			</ul>
-		</div>
-		<div id="contact" class="col5">
-			<form method="post" name="Form" action="contact.php">
-				<label for="name">Name</label>
-				<input type="text" name="name" required>
-				<label for="email" id="email">Email</label>
-				<input type="text" name="email"  required>
-				<label for="subject">What's Up?</label>
-				<select name="subject">
-  				<option value="Build me a Site!">Build me a site!</option>
-  				<option value="I have a suggestion.">I have a suggestion.</option>
-  				<option value="I have a question.">I have a question.</option>
-  				<option value="I found an issue.">I found an issue.</option>
-				</select>
-				<label for="message">Tell me more...</label>
-				<textarea name="message" rows="5" required></textarea>
-				<input type="submit" name="submit" value="Submit">
-			</form>
-		</div>
-		<section id="copy">
-			<span>&copy; Josh Boyan 2016</span>
-			<a href="#main"><i aria-label="Back to Top" class="fa fa-angle-double-up"></i></a>
-		</section><!--/#copy-->
+		
 	</footer>
-	<script   src="http://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
 	<script src="%js/scripts.js"></script>
 </body>
 </html>
