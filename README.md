@@ -10,9 +10,9 @@ minframe is a modern HTML5, mobile-first framework built with Sass and Gulp on a
 
 -BrowserSync Live Reload and device testing built right in.
 
--Use the lastest ES6 syntax with Babeljs, automatically check quality with jshint then compile, concatenate and minify with uglifyjs.
+-Use the latest ES6 syntax with Babeljs, automatically check quality with jshint then compile, concatenate and minify with uglifyjs.
 
--Responsive grid built on Sass preprocessor is automatically compiled, concataneted, minified and autprefixed along with your custom styles to support legacy browsers.
+-Responsive grid built on Sass preprocessor is automatically compiled, concatenated, minified and auto-prefixed along with your custom styles to support legacy browsers.
 
 -Server side PHP5 form validation, sanitation and email processing.
 
