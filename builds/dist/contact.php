@@ -3,12 +3,15 @@
 <form name="Form" action="contact_process.php" method="post">
 	<label for="email" id="email">Email</label>
 	<input type="text" name="email" required>
+	<fieldset>
+		<legend>Subject</legend>
 	<select name="subject">
   	<option value="help">Build me a site!</option>
   	<option value="suggestion">I have a suggestion.</option>
   	<option value="question">I have a question.</option>
   	<option value="issue">I found an issue.</option>
 	</select>
+	</fieldset>
 	<label for="name">Name</label>
 	<input type="text" name="name" required>	
 	<label for="subject">What's Up?</label>
