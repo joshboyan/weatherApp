@@ -79,185 +79,184 @@
     });
   }
 
-  var time = new Date().getHours(),
-      date = new Date().getYear() + 1900,
-      planningTime = 'day',
-      system = 'standard',
-      latitude,
-      longitude,
-      city,
-      state,
-      weather,
-      icon,
-      fahrenheit,
-      feelsLikeF,
-      celsius,
-      feelsLikeC,
-      humidity,
-      windDirection,
-      windSpeedMPH,
-      windSpeedKPH,
-      logo,
-      day1WeekDay,
-      day1Month,
-      day1DateDay,
-      day1Weather,
-      day1Icon,
-      day1HighC,
-      day1HighF,
-      day1LowC,
-      day1LowF,
-      day1WindDir,
-      day1SpeedKPH,
-      day1SpeedMPH,
-      day1Humidity,
-      day2WeekDay,
-      day2Month,
-      day2DateDay,
-      day2Weather,
-      day2Icon,
-      day2HighC,
-      day2HighF,
-      day2LowC,
-      day2LowF,
-      day2WindDir,
-      day2SpeedKPH,
-      day2SpeedMPH,
-      day2Humidity,
-      day3WeekDay,
-      day3Month,
-      day3DateDay,
-      day3Weather,
-      day3Icon,
-      day3HighC,
-      day3HighF,
-      day3LowC,
-      day3LowF,
-      day3WindDir,
-      day3SpeedKPH,
-      day3SpeedMPH,
-      day3Humidity;
+  var time = new Date().getHours();
+  var date = new Date().getYear() + 1900;
+  var planningTime = 'day';
+  var latitude;
+  var longitude;
+  var city;
+  var state;
+  var weather;
+  var icon;
+  var fahrenheit;
+  var feelsLikeF;
+  var celsius;
+  var feelsLikeC;
+  var humidity;
+  var windDirection;
+  var windSpeedMPH;
+  var windSpeedKPH;
+  var logo;
+  var day1WeekDay;
+  var day1Month;
+  var day1DateDay;
+  var day1Weather;
+  var day1Icon;
+  var day1HighC;
+  var day1HighF;
+  var day1LowC;
+  var day1LowF;
+  var day1WindDir;
+  var day1SpeedKPH;
+  var day1SpeedMPH;
+  var day1Humidity;
+  var day2WeekDay;
+  var day2Month;
+  var day2DateDay;
+  var day2Weather;
+  var day2Icon;
+  var day2HighC;
+  var day2HighF;
+  var day2LowC;
+  var day2LowF;
+  var day2WindDir;
+  var day2SpeedKPH;
+  var day2SpeedMPH;
+  var day2Humidity;
+  var day3WeekDay;
+  var day3Month;
+  var day3DateDay;
+  var day3Weather;
+  var day3Icon;
+  var day3HighC;
+  var day3HighF;
+  var day3LowC;
+  var day3LowF;
+  var day3WindDir;
+  var day3SpeedKPH;
+  var day3SpeedMPH;
+  var day3Humidity;
 
   function removeWeather() {
-    document.querySelector('#clouds').style.display="none";
-    document.querySelector('#rain').style.display="none";
-    document.querySelector('#snow').style.display="none";
-    document.querySelector('#sun').style.display="none";
-    document.querySelector('#moon').style.display="none";
-    document.querySelector('#stars').style.display="none";
-    document.querySelector('#lightning').style.display="none";
-    document.querySelector('#clearLink').className="";
-    document.querySelector('#partlyLink').className="";
-    document.querySelector('#lightRainLink').className="";
-    document.querySelector('#heavyRainLink').className="";
-    document.querySelector('#stormsLink').className="";
-    document.querySelector('#lightSnowLink').className="";
-    document.querySelector('#heavySnowLink').className="";
+    document.querySelector('#clouds').style.display = 'none';
+    document.querySelector('#rain').style.display = 'none';
+    document.querySelector('#snow').style.display = 'none';
+    document.querySelector('#sun').style.display = 'none';
+    document.querySelector('#moon').style.display = 'none';
+    document.querySelector('#stars').style.display = 'none';
+    document.querySelector('#lightning').style.display = 'none';
+    document.querySelector('#clearLink').className = '';
+    document.querySelector('#partlyLink').className = '';
+    document.querySelector('#lightRainLink').className = '';
+    document.querySelector('#heavyRainLink').className = '';
+    document.querySelector('#stormsLink').className = '';
+    document.querySelector('#lightSnowLink').className = '';
+    document.querySelector('#heavySnowLink').className = '';
   }
   function clearWeather() {
     removeWeather();
-    if (planningTime == 'day') {
-      document.querySelector('#sun').style.display="block";
-    }else if (planningTime == 'night') {
-      document.querySelector('#moon').style.display="block";    document.querySelector('#stars').style.display="block";
+    if (planningTime === 'day') {
+      document.querySelector('#sun').style.display = 'block';
+    } else if (planningTime === 'night') {
+      document.querySelector('#moon').style.display = 'block';
+      document.querySelector('#stars').style.display = 'block';
     } else {
-      document.querySelector('#stars').style.display="block";
+      document.querySelector('#stars').style.display = 'block';
     }
-    document.querySelector('#clearLink').className="active-link";
+    document.querySelector('#clearLink').className = 'active-link';
   }
   function partlyWeather() {
     removeWeather();
-    document.querySelector('#clouds').style.display="block";
-    document.querySelector('.right-clouds').style.display="none";
-    if (planningTime == 'day') {
-      document.querySelector('#sun').style.display="block";
-    }else if (planningTime == 'night') {
-
-      document.querySelector('#moon').style.display="block";
+    document.querySelector('#clouds').style.display = 'block';
+    document.querySelector('.right-clouds').style.display = 'none';
+    if (planningTime === 'day') {
+      document.querySelector('#sun').style.display = 'block';
+    } else if (planningTime === 'night') {
+      document.querySelector('#moon').style.display = 'block';
     }
-    document.querySelector('#partlyLink').className="active-link";
+    document.querySelector('#partlyLink').className = 'active-link';
   }
   function lightRainWeather() {
     removeWeather();
-    document.querySelector('#clouds').style.display="block";
-    document.querySelector('.right-clouds').style.display="block";
-    document.querySelector('#rain').style.display="block";
-    document.querySelector('.heavy').style.display="none";
-    document.querySelector('#lightRainLink').className="active-link";
+    document.querySelector('#clouds').style.display = 'block';
+    document.querySelector('.right-clouds').style.display = 'block';
+    document.querySelector('#rain').style.display = 'block';
+    document.querySelector('.heavy').style.display = 'none';
+    document.querySelector('#lightRainLink').className = 'active-link';
   }
   function heavyRainWeather() {
     removeWeather();
-    document.querySelector('#clouds').style.display="block";
-    document.querySelector('.right-clouds').style.display="block";
-    document.querySelector('#rain').style.display="block";
-    document.querySelector('.heavy').style.display="block";
-    document.querySelector('#heavyRainLink').className="active-link";
+    document.querySelector('#clouds').style.display = 'block';
+    document.querySelector('.right-clouds').style.display = 'block';
+    document.querySelector('#rain').style.display = 'block';
+    document.querySelector('.heavy').style.display = 'block';
+    document.querySelector('#heavyRainLink').className = 'active-link';
   }
   function stormsWeather() {
     removeWeather();
-    document.querySelector('#clouds').style.display="block";
-    document.querySelector('.right-clouds').style.display="block";
-    document.querySelector('#rain').style.display="block";
-    document.querySelector('#lightning').style.display="block";
-    document.querySelector('#stormsLink').className="active-link";
+    document.querySelector('#clouds').style.display = 'block';
+    document.querySelector('.right-clouds').style.display = 'block';
+    document.querySelector('#rain').style.display = 'block';
+    document.querySelector('#lightning').style.display = 'block';
+    document.querySelector('#stormsLink').className = 'active-link';
   }
   function lightSnowWeather() {
     removeWeather();
-    document.querySelector('#clouds').style.display="block";
-    document.querySelector('.right-clouds').style.display="block";
-    document.querySelector('#snow').style.display="block";
-    document.getElementById('snow').querySelector('.heavy').style.display="none";
-    document.querySelector('#lightSnowLink').className="active-link";
+    document.querySelector('#clouds').style.display = 'block';
+    document.querySelector('.right-clouds').style.display = 'block';
+    document.querySelector('#snow').style.display = 'block';
+    document.getElementById('snow').querySelector('.heavy').style.display = 'none';
+    document.querySelector('#lightSnowLink').className = 'active-link';
   }
   function heavySnowWeather() {
     removeWeather();
-    document.querySelector('#clouds').style.display="block";
-    document.querySelector('.right-clouds').style.display="block";
-    document.querySelector('#snow').style.display="block";
-    document.getElementById('snow').querySelector('.heavy').style.display="block";
-    document.querySelector('#heavySnowLink').className="active-link";
+    document.querySelector('#clouds').style.display = 'block';
+    document.querySelector('.right-clouds').style.display = 'block';
+    document.querySelector('#snow').style.display = 'block';
+    document.getElementById('snow').querySelector('.heavy').style.display = 'block';
+    document.querySelector('#heavySnowLink').className = 'active-link';
   }
-  document.querySelector('#clearLink').addEventListener("click", clearWeather);
-  document.querySelector('#partlyLink').addEventListener("click", partlyWeather);
-  document.querySelector('#lightRainLink').addEventListener("click", lightRainWeather);
-  document.querySelector('#heavyRainLink').addEventListener("click", heavyRainWeather);
-  document.querySelector('#stormsLink').addEventListener("click", stormsWeather);
-  document.querySelector('#lightSnowLink').addEventListener("click", lightSnowWeather);
-  document.querySelector('#heavySnowLink').addEventListener("click", heavySnowWeather);
+  document.querySelector('#clearLink').addEventListener('click', clearWeather);
+  document.querySelector('#partlyLink').addEventListener('click', partlyWeather);
+  document.querySelector('#lightRainLink').addEventListener('click', lightRainWeather);
+  document.querySelector('#heavyRainLink').addEventListener('click', heavyRainWeather);
+  document.querySelector('#stormsLink').addEventListener('click', stormsWeather);
+  document.querySelector('#lightSnowLink').addEventListener('click', lightSnowWeather);
+  document.querySelector('#heavySnowLink').addEventListener('click', heavySnowWeather);
 
   function removeTimeLinks() {
-    document.querySelector('#dayLink').className="";
-    document.querySelector('#nightLink').className="";
-    document.querySelector('#twilightLink').className="";
+    document.querySelector('#dayLink').className = '';
+    document.querySelector('#nightLink').className = '';
+    document.querySelector('#twilightLink').className = '';
   }
   function setDay() {
     removeTimeLinks();
-    document.querySelector('main').style.background = "#87ceeb";
-    document.querySelector('#dayLink').className="active-link";
-    planningTime = "day";
-    if(document.querySelector('#clearLink').className="active-link") {
+    document.querySelector('main').style.background = '#87ceeb';
+    document.querySelector('#dayLink').className = 'active-link';
+    planningTime = 'day';
+    if (document.querySelector('#clearLink').className === 'active-link') {
       clearWeather();
     }
   }
   function setNight() {
     removeTimeLinks();
-    document.querySelector('main').style.background = "#2E0854";
-    document.querySelector('#nightLink').className="active-link";
-    planningTime = "night";
-    if(document.querySelector('#clearLink').className="active-link") {
+    document.querySelector('main').style.background = '#2E0854';
+    document.querySelector('#nightLink').className = 'active-link';
+    planningTime = 'night';
+    if (document.querySelector('#clearLink').className === 'active-link') {
       clearWeather();
     }
   }
   function setTwilight() {
     removeTimeLinks();
-    document.querySelector('main').style.background = "linear-gradient(to bottom right, #2E0854 20%, #ffaa00)";
-    document.querySelector('#twilightLink').className="active-link";
-    planningTime = "twilight";
-    if(document.querySelector('#clearLink').className="active-link") {
+    document.querySelector('main').style.background = 'linear-gradient(to bottom right, #2E0854 20%, #ffaa00)';
+    document.querySelector('#twilightLink').className = 'active-link';
+    planningTime = 'twilight';
+    if (document.querySelector('#clearLink').className === 'active-link') {
       clearWeather();
     }
   }
-//Set backg
+// Set backg
   if (time < 6 || time > 18) {
     setNight();
   } else if (time > 7 && time < 17) {
@@ -266,13 +265,12 @@
     setTwilight();
   }
   console.log(time);
-  document.querySelector('#dayLink').addEventListener("click", setDay);
-  document.querySelector('#nightLink').addEventListener("click", setNight);
-  document.querySelector('#twilightLink').addEventListener("click", setTwilight);
+  document.querySelector('#dayLink').addEventListener('click', setDay);
+  document.querySelector('#nightLink').addEventListener('click', setNight);
+  document.querySelector('#twilightLink').addEventListener('click', setTwilight);
   document.querySelector('#c').onclick = function() {
-    system = 'metric';
-    document.querySelector('#c').className = "active";
-    document.querySelector('#f').className = "";
+    document.querySelector('#c').className = 'active';
+    document.querySelector('#f').className = '';
     document.querySelector('#actual').innerHTML = `${celsius}&deg; C`;
     document.querySelector('#feelsLike').innerHTML = `${feelsLikeC}&deg; C`;
     document.querySelector('#wind').innerHTML = `${windDirection} ${windSpeedKPH} KPH`;
@@ -282,12 +280,11 @@
     document.querySelector('#day2Wind').innerHTML = `${day2WindDir} ${day2SpeedKPH} KPH`;
     document.querySelector('#day3Temp').innerHTML = `${day3HighC}/${day3LowC}&deg;C`;
     document.querySelector('#day3Wind').innerHTML = `${day3WindDir} ${day3SpeedKPH} KPH`;
-    //console.log(system);
+    // console.log(system);
   };
   document.querySelector('#f').onclick = function() {
-    system = 'standard';
-    document.querySelector('#f').className = "active";
-    document.querySelector('#c').className = "";
+    document.querySelector('#f').className = 'active';
+    document.querySelector('#c').className = '';
     document.querySelector('#actual').innerHTML = `${fahrenheit}&deg; F`;
     document.querySelector('#feelsLike').innerHTML = `${feelsLikeF}&deg; F`;
     document.querySelector('#wind').innerHTML = `${windDirection} ${windSpeedMPH} MPH`;
@@ -297,111 +294,112 @@
     document.querySelector('#day2Wind').innerHTML = `${day2WindDir} ${day2SpeedMPH} MPH`;
     document.querySelector('#day3Temp').innerHTML = `${day3HighF}/${day3LowF}&deg;F`;
     document.querySelector('#day3Wind').innerHTML = `${day3WindDir} ${day3SpeedMPH} MPH`;
-    //console.log(system);
+    // console.log(system);
   };
 
-//Check is geolocation is available
+// Check is geolocation is available
   if (navigator.geolocation) {
-    //Get coordinates of device
+    // Get coordinates of device
     navigator.geolocation.getCurrentPosition(function(position) {
-      //Assign coordinates to varirbles
+      // Assign coordinates to varirbles
       latitude = position.coords.latitude;
       longitude = position.coords.longitude;
-      //Show coordinates in viewport
-      //output.innerHTML = `The latitude is ${latitude} and the longitude is ${longitude}`;
-      //Setup variables for fetch api promise
-      let myHeaders = new Headers(),
-          myInit = {
-            method: 'GET',
-            headers: myHeaders,
-            mode: 'cors',
-            cache: 'default'
-          };
+      // Show coordinates in viewport
+      // output.innerHTML = `The latitude is ${latitude} and the longitude is ${longitude}`;
+      // Setup variables for fetch api promise
+      let myHeaders = new Headers();
+      let myInit = {
+        method: 'GET',
+        headers: myHeaders,
+        mode: 'cors',
+        cache: 'default'
+      };
       let forecastToday = `https://api.wunderground.com/api/22b6650e820a9ff6/geolookup/conditions/q/${latitude},${longitude}.json`;
 
-      //request data from weather api
-      fetch(forecastToday, myInit)
-          .then(function(response) {
-            if (response.ok) {
-              response.json()
-                  .then(function(data) {
-                    console.log(data);
-                    city = data.location.city;
-                    state = data.location.state;
-                    weather = data.current_observation.weather;
-                    icon = data.current_observation.icon_url;
-                    fahrenheit = data.current_observation.temp_f;
-                    feelsLikeF = data.current_observation.feelslike_f;
-                    celsius = data.current_observation.temp_c;
-                    feelsLikeC = data.current_observation.feelslike_c;
-                    humidity = data.current_observation.relative_humidity;
-                    windDirection = data.current_observation.wind_dir;
-                    windSpeedMPH = data.current_observation.wind_mph;
-                    windSpeedKPH = data.current_observation.wind_kph;
-                    logo = data.current_observation.image.url;
-                    console.log(data);
-                    /*console.log(city);
-                     console.log(state);
-                     console.log(weather);
-                     console.log(icon);
-                     console.log(fahrenheit);
-                     console.log(feelsLikeF);
-                     console.log(celsius);
-                     console.log(feelsLikeC);
-                     console.log(humidity);
-                     console.log(windDirection);
-                     console.log(windSpeedMPH);
-                     console.log(windSpeedKPH);
-                     console.log(logo);*/
-                    document.querySelector('#location').innerHTML = `${city} , ${state}`;
+      // request data from weather api
+      var httpRequest = new XMLHttpRequest();
+      httpRequest.onreadystatechange = function() {
+        if (httpRequest.readyState === XMLHttpRequest.DONE) {
+          if (httpRequest.status === 200) {
+            var data = JSON.parse(httpRequest.responseText);
+            console.log(data);
+            city = data.location.city;
+            state = data.location.state;
+            weather = data.current_observation.weather;
+            icon = data.current_observation.icon_url;
+            fahrenheit = data.current_observation.temp_f;
+            feelsLikeF = data.current_observation.feelslike_f;
+            celsius = data.current_observation.temp_c;
+            feelsLikeC = data.current_observation.feelslike_c;
+            humidity = data.current_observation.relative_humidity;
+            windDirection = data.current_observation.wind_dir;
+            windSpeedMPH = data.current_observation.wind_mph;
+            windSpeedKPH = data.current_observation.wind_kph;
+            logo = data.current_observation.image.url;
+            console.log(data);
+            /* console.log(city);
+             console.log(state);
+             console.log(weather);
+             console.log(icon);
+             console.log(fahrenheit);
+             console.log(feelsLikeF);
+             console.log(celsius);
+             console.log(feelsLikeC);
+             console.log(humidity);
+             console.log(windDirection);
+             console.log(windSpeedMPH);
+             console.log(windSpeedKPH);
+             console.log(logo); */
+            document.querySelector('#location').innerHTML = `${city} , ${state}`;
 
-                    document.querySelector('#icon').innerHTML = `<img src=${icon.replace('http', 'https')} />`;
+            document.querySelector('#icon').innerHTML = `<img src=${icon.replace('http', 'https')} />`;
 
-                    document.querySelector('#conditions').innerHTML = `${weather}`;
+            document.querySelector('#conditions').innerHTML = `${weather}`;
 
-                    document.querySelector('#humidity').innerHTML = `${humidity}`;
+            document.querySelector('#humidity').innerHTML = `${humidity}`;
 
-                    document.querySelector('#wind').innerHTML = `${windDirection} ${windSpeedMPH} MPH`;
+            document.querySelector('#wind').innerHTML = `${windDirection} ${windSpeedMPH} MPH`;
 
-                    document.querySelector('#actual').innerHTML = `${fahrenheit}&deg; F`;
-                    document.querySelector('#feelsLike').innerHTML = `${feelsLikeF}&deg; F`;
-                    let planningStr = `https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=things%20to%20do%20in%20${city}%20${state}%20on%20a%20${weather}%20${planningTime}`;
-                    if (time < 15) {
-                      document.querySelector('#plan').setAttribute('href', planningStr);
-                    } else {
-                      document.querySelector('#plan').setAttribute('href', planningStr);
-                      document.querySelector('#plan').innerHTML = 'Plan Your Night';
-                    }
-                    document.querySelector('#thermometerTemp').setAttribute('y1', `${150 - fahrenheit}`);
-                    document.querySelector('#attribution').innerHTML = `<img src=${logo.replace('http', 'https')}> <span>Weather information for Latitude:${Math.round(latitude *100)/100} and Longitude:${Math.round(longitude * 100)/100} provided by <a href=https://www.wunderground.com>Weather&nbsp;Underground</a>`;
-                    if (weather.includes('Clear') || weather.includes('Smoke') || weather.includes('Haze')  || weather.includes('Ash') || weather.includes('Dust') || weather.includes('Sandstorm') || weather.includes('Fog') || weather.includes('Sand')) {
-                      clearWeather();
-                    }
-                    if (weather.includes('Cloudy') || weather.includes('Clouds') || weather.includes('Overcast')) {
-                      partlyWeather();
-                    }
-                    if (weather.includes('Rain')) {
-                      heavyRainWeather();
-                    }
-                    if (weather.includes('Drizzle') || weather.includes('Mist')) {
-                      lightRainWeather();
-                    }
-                    if (weather.includes('Snow') || weather.includes('Ice') || weather.includes('Hail')) {
-                      if(weather.includes('Light')) {
-                        lightSnowWeather();
-                      } else {
-                        heavySnowWeather();
-                      }
-                      if(weather.includes('Thunderstorms')) {
-                        stormWeather();
-                      }
-
-                    }
-                  });
+            document.querySelector('#actual').innerHTML = `${fahrenheit}&deg; F`;
+            document.querySelector('#feelsLike').innerHTML = `${feelsLikeF}&deg; F`;
+            let planningStr = `https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=things%20to%20do%20in%20${city}%20${state}%20on%20a%20${weather}%20${planningTime}`;
+            if (time < 15) {
+              document.querySelector('#plan').setAttribute('href', planningStr);
             } else {
-              console.log('Network response was not ok.');
+              document.querySelector('#plan').setAttribute('href', planningStr);
+              document.querySelector('#plan').innerHTML = 'Plan Your Night';
             }
-          });
+            document.querySelector('#thermometerTemp').setAttribute('y1', `${150 - fahrenheit}`);
+            document.querySelector('#attribution').innerHTML = `<img src=${logo.replace('http', 'https')}> <span>Weather information for Latitude:${Math.round(latitude * 100) / 100} and Longitude:${Math.round(longitude * 100) / 100} provided by <a href=https://www.wunderground.com>Weather&nbsp;Underground</a>`;
+            if (weather.includes('Clear') || weather.includes('Smoke') || weather.includes('Haze') || weather.includes('Ash') || weather.includes('Dust') || weather.includes('Sandstorm') || weather.includes('Fog') || weather.includes('Sand')) {
+              clearWeather();
+            }
+            if (weather.includes('Cloudy') || weather.includes('Clouds') || weather.includes('Overcast')) {
+              partlyWeather();
+            }
+            if (weather.includes('Rain')) {
+              heavyRainWeather();
+            }
+            if (weather.includes('Drizzle') || weather.includes('Mist')) {
+              lightRainWeather();
+            }
+            if (weather.includes('Snow') || weather.includes('Ice') || weather.includes('Hail')) {
+              if (weather.includes('Light')) {
+                lightSnowWeather();
+              } else {
+                heavySnowWeather();
+              }
+              if (weather.includes('Thunderstorms')) {
+                stormsWeather();
+              }
+            }
+          } else {
+            console.log('Network Response was not OK. Error:' + httpRequest.status);
+          }
+        }
+      };
+      httpRequest.open('GET', forecastToday, true);
+      httpRequest.send(null);
       let forecast3Day = `https://api.wunderground.com/api/22b6650e820a9ff6/forecast/q/${latitude},${longitude}.json`;
       fetch(forecast3Day, myInit)
           .then(function(response) {
@@ -421,7 +419,7 @@
                     day1SpeedKPH = data.forecast.simpleforecast.forecastday[1].avewind.kph;
                     day1SpeedMPH = data.forecast.simpleforecast.forecastday[1].avewind.mph;
                     day1Humidity = data.forecast.simpleforecast.forecastday[1].avehumidity;
-                    /*console.log(data);
+                    /* console.log(data);
                      console.log(day1WeekDay);
                      console.log(day1Month);
                      console.log(day1DateDay);
@@ -434,7 +432,7 @@
                      console.log(day1WindDir);
                      console.log(day1SpeedKPH);
                      console.log(day1SpeedMPH);
-                     console.log(day1Humidity);*/
+                     console.log(day1Humidity); */
                     day2WeekDay = data.forecast.simpleforecast.forecastday[2].date.weekday;
                     day2Month = data.forecast.simpleforecast.forecastday[2].date.month;
                     day2DateDay = data.forecast.simpleforecast.forecastday[2].date.day;
@@ -465,7 +463,6 @@
                     if (day1Weather.length < 8) {
                       document.querySelector('#day1Weather').innerHTML = day1Weather;
                     } else {
-
                       document.querySelector('#day1Weather').innerHTML = day1Weather.replace(' ', '<br>');
                     }
                     document.querySelector('#day1Icon').innerHTML = `<img src="${day1Icon.replace('http', 'https')}">`;
@@ -476,7 +473,6 @@
                     if (day2Weather.length < 9) {
                       document.querySelector('#day2Weather').innerHTML = day2Weather;
                     } else {
-
                       document.querySelector('#day2Weather').innerHTML = day2Weather.replace(' ', '<br>');
                     }
                     document.querySelector('#day2Icon').innerHTML = `<img src="${day2Icon.replace('http', 'https')}">`;
@@ -487,7 +483,6 @@
                     if (day3Weather.length < 9) {
                       document.querySelector('#day3Weather').innerHTML = day3Weather;
                     } else {
-
                       document.querySelector('#day3Weather').innerHTML = day3Weather.replace(' ', '<br>');
                     }
                     document.querySelector('#day3Icon').innerHTML = `<img src="${day3Icon.replace('http', 'https')}">`;
@@ -501,10 +496,10 @@
           });
     });
   } else {
-    alert("Geolocation is not available in this browser");
+    console.log('Geolocation is not available in this browser');
   }
-//Change the date in the copyright statement to this year
-  document.querySelector('#copy').innerHTML = `&copy; JoshBoyan ${date}`;
+// Change the date in the copyright statement to this year
+  document.querySelector('#copy').innerHTML = `&copy; Josh Boyan ${date}`;
 
   var infoPanelHeight = document.querySelector('.info-panel').clientHeight;
   console.log(infoPanelHeight);
@@ -512,5 +507,4 @@
   var optionPanelHeight = document.querySelector('.option-panel').clientHeight;
   console.log(optionPanelHeight);
   document.querySelector('#main').style.height = `${infoPanelHeight + 500 + optionPanelHeight}px`;
-  // Your custom JavaScript goes here
 })();
