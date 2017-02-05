@@ -10,14 +10,19 @@
         "sizes": "152x152",
         "type": "image/png"
       }, {
-        "src": "images/touch/ms-touch-icon-144x144-precomposed.png",
+        "src": "images/touch/ms-touch-icon-144x144.png",
         "sizes": "144x144",
         "type": "image/png"
       }, {
         "src": "images/touch/chrome-touch-icon-192x192.png",
         "sizes": "192x192",
         "type": "image/png"
-      }],
+      },
+    {
+      "src": "images/touch/large-icon-252x252.png",
+      "sizes": "252x252",
+      "type": "image/png"
+    }],
   "start_url": "/index.html?homescreen=1",
   "display": "standalone",
   "background_color": "#3E4EB8",

@@ -218,24 +218,24 @@ main {
   position: absolute;
   z-index: 10;
   float: right;
-  top: 35px;
+  top: 30px;
   animation: sun-band-red 2s ease-in-out infinite;
 }
 
 @keyframes sun-band-red {
   0% {
 
-    right: 95px;
+    right: 80px;
     transform: scale(1.5);
   }
   50% {
 
-    right: 105px;
+    right: 90px;
     transform: scale(1.25) rotate(25deg);
   }
   100% {
 
-    right: 95px;
+    right: 80px;
     transform: scale(1.5);
   }
 }
@@ -244,8 +244,8 @@ main {
   position: absolute;
   z-index: 5;
   float: right;
-  top: 35px;
-  right: 100px;
+  top: 25px;
+  right: 70px;
   animation: sun-band-orange 2s ease-in-out infinite;
 }
 
@@ -265,21 +265,19 @@ main {
   position: absolute;
   z-index: 0;
   float: right;
-  right: 100px;
+  top: 30px;
+  right: 80px;
   animation: sun-band-between 2s ease-in-out infinite;
 }
 
 @keyframes sun-band-between {
   0% {
-    top: 40px;
     transform: scale(1.5) rotate(-15deg);
   }
   60% {
-    top: 40px;
     transform: scale(1.25) rotate(45deg);
   }
   100% {
-    top: 40px;
     transform: scale(1.5) rotate(-15deg);
   }
 }
