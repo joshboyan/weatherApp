@@ -10,7 +10,8 @@ var gulp = require('gulp'),
     babel = require('gulp-babel'),
     panini = require('panini'),
     sitemap = require('gulp-sitemap'),
-    replace = require('gulp-replace');
+    replace = require('gulp-replace'),
+    runSequence = require('run-sequence');
 
 var jsSources = ['./components/js/*.js']; //may need to dictate specific concatenation order
 var sassSources = ['./components/sass/*.scss'];
@@ -117,11 +118,13 @@ gulp.task('sitemap', function () {
         .pipe(gulp.dest('./builds/dist'));
 });
 
-gulp.task('watch', function() {
-	gulp.watch(['./components/{layouts,partials,helpers,data}/**/*'], [panini.refresh]);
-	gulp.watch(jsSources, ['js']).on('change', browserSync.reload);
-	gulp.watch(sassSources, ['sass']).on('change', browserSync.reload);
+gulp.task('watch', function(done) {
+  gulp.watch(jsSources, ['js']).on('change', browserSync.reload);
+  gulp.watch(sassSources, ['sass']).on('change', browserSync.reload);
   gulp.watch(htmlSources, ['panini']).on('change', browserSync.reload);
+  runSequence('panini', function() {
+    gulp.watch(['./components/{layouts,partials,helpers,data}/**/*'], [panini.refresh]);
+  });	
 });
 
 gulp.task('default', ['js', 'sass', 'panini', 'browser-sync',  'imgmin', 'watch']);
