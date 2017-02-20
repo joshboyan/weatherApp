@@ -1,5 +1,4 @@
 var gulp = require('gulp'),
-<<<<<<< HEAD
   sass = require('gulp-sass'),
   autoprefixer = require('gulp-autoprefixer'),
   browserSync = require('browser-sync').create(),
@@ -16,26 +15,6 @@ var gulp = require('gulp'),
   source = require('vinyl-source-stream'),
   buffer = require('vinyl-buffer'),
   sourcemaps = require('gulp-sourcemaps');
-=======
-    sass = require('gulp-sass'),
-    autoprefixer = require('gulp-autoprefixer'),
-    browserSync = require('browser-sync').create(),
-    uglify = require('gulp-uglify'),
-    minify = require('gulp-minify-html'),
-    imgmin = require('gulp-imagemin'),
-    concat = require('gulp-concat'),
-    jshint = require('gulp-jshint'),
-    babel = require('gulp-babel'),
-    panini = require('panini'),
-    sitemap = require('gulp-sitemap'),
-    replace = require('gulp-replace'),
-    browserify = require('gulp-browserify'),
-    source = require('vinyl-source-stream'),
-    buffer = require('vinyl-buffer'),
-    sourcemaps = require('gulp-sourcemaps'),
-    gutil = require('gulp-util'),
-    runSequence = require('run-sequence');
->>>>>>> 8a769aa2e4c4771fecc1dcfc4b2d3f0fec372eeb
 
 var jsSources = ['./components/js/*.js']; //may need to dictate specific concatenation order
 var sassSources = ['./components/sass/*.scss'];
