@@ -1,7 +1,7 @@
 //This manifest is for adding icons to mobile users homescreens
 {
-  "name": "SVG Weather",
-  "short_name": "SVG Weather",
+  "name": "SVG Weather", // Nme or your site or app
+  "short_name": "SVG Weather", // Name shown on user homescreen
   "icons": [{
         "src": "images/touch/icon-128x128.png",
         "sizes": "128x128",
