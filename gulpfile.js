@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+<<<<<<< HEAD
   sass = require('gulp-sass'),
   autoprefixer = require('gulp-autoprefixer'),
   browserSync = require('browser-sync').create(),
@@ -15,6 +16,26 @@ var gulp = require('gulp'),
   source = require('vinyl-source-stream'),
   buffer = require('vinyl-buffer'),
   sourcemaps = require('gulp-sourcemaps');
+=======
+    sass = require('gulp-sass'),
+    autoprefixer = require('gulp-autoprefixer'),
+    browserSync = require('browser-sync').create(),
+    uglify = require('gulp-uglify'),
+    minify = require('gulp-minify-html'),
+    imgmin = require('gulp-imagemin'),
+    concat = require('gulp-concat'),
+    jshint = require('gulp-jshint'),
+    babel = require('gulp-babel'),
+    panini = require('panini'),
+    sitemap = require('gulp-sitemap'),
+    replace = require('gulp-replace'),
+    browserify = require('gulp-browserify'),
+    source = require('vinyl-source-stream'),
+    buffer = require('vinyl-buffer'),
+    sourcemaps = require('gulp-sourcemaps'),
+    gutil = require('gulp-util'),
+    runSequence = require('run-sequence');
+>>>>>>> 8a769aa2e4c4771fecc1dcfc4b2d3f0fec372eeb
 
 var jsSources = ['./components/js/*.js']; //may need to dictate specific concatenation order
 var sassSources = ['./components/sass/*.scss'];
@@ -59,22 +80,23 @@ gulp.task('jsDist', function() {
     .pipe(gulp.dest('builds/dist/js'))
 });
 
-gulp.task('sass', function () {
-  return gulp.src(sassSources)
-    .pipe(sass().on('error', sass.logError))
-    .pipe(autoprefixer({
+gulp.task('sass', function() {
+    return gulp.src(sassSources)
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer({
             browsers: ['last 4 versions']
         }))
-    .pipe(gulp.dest('./builds/dev/css'))
+        .pipe(gulp.dest('./builds/dev/css'))
+
 });
 
-gulp.task('sassDist', function () {
-  return gulp.src(sassSources)
-    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-    .pipe(autoprefixer({
+gulp.task('sassDist', function() {
+    return gulp.src(sassSources)
+        .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+        .pipe(autoprefixer({
             browsers: ['last 4 versions']
         }))
-    .pipe(gulp.dest('./builds/dist/css'))
+        .pipe(gulp.dest('./builds/dist/css'))
 });
 gulp.task('panini', function() {
   gulp.src(htmlSources)
@@ -104,19 +126,44 @@ gulp.task('paniniDist', function() {
 });
 
 gulp.task('imgmin', function() {
-    gulp.src('./components/img/**/*.*')
-    .pipe(imgmin())
-    .pipe(gulp.dest('./builds/dev/img'));
+    return gulp.src('./components/img/**/*.*')
+        .pipe(imgmin())
+        .pipe(gulp.dest('./builds/dev/img'));
 });
 
 gulp.task('imgminDist', function() {
-	gulp.src('./builds/dev/img/**/*.*')
-	.pipe(imgmin())
-	.pipe(gulp.dest('./builds/dist/img'));
+    return gulp.src('./builds/dev/img/**/*.*')
+        .pipe(imgmin())
+        .pipe(gulp.dest('./builds/dist/img'));
+});
+gulp.task('panini', function() {
+    return gulp.src('./components/pages/**/*.html')
+        .pipe(panini({
+            root: './components/pages/',
+            layouts: './components/layouts/',
+            partials: './components/partials/',
+            helpers: './components/helpers/',
+            data: './components/data/'
+        }))
+        .pipe(replace(/(%)/g, './builds/dev/'))
+        .pipe(gulp.dest('./builds/dev'));
 });
 
-gulp.task('sitemap', function () {
-    gulp.src('./builds/dist/**/*.html', {
+gulp.task('paniniDist', function() {
+    return gulp.src('./components/pages/**/*.html')
+        .pipe(panini({
+            root: './components/pages/',
+            layouts: './components/layouts/',
+            partials: './components/partials/',
+            helpers: './components/helpers/',
+            data: './components/data/'
+        }))
+        .pipe(replace(/(%)/g, ''))
+        .pipe(gulp.dest('./builds/dist'));
+});
+
+gulp.task('sitemap', function() {
+    return gulp.src('./builds/dist/**/*.html', {
             read: false
         })
         .pipe(sitemap({
@@ -125,12 +172,13 @@ gulp.task('sitemap', function () {
         .pipe(gulp.dest('./builds/dist'));
 });
 
+
 gulp.task('watch', function() {
 	gulp.watch(jsSources, ['js']).on('change', browserSync.reload);
 	gulp.watch(sassSources, ['sass']).on('change', browserSync.reload);
   gulp.watch(htmlSources, ['panini']).on('change', browserSync.reload);
 });
 
-gulp.task('default', ['js', 'sass', 'panini', 'browser-sync',  'imgmin', 'watch']);
+gulp.task('default', ['js', 'sass', 'panini', 'browser-sync', 'imgmin', 'watch']);
 
-gulp.task('dist', ['sassDist','jsDist', 'paniniDist', 'imgminDist', 'sitemap']);
+gulp.task('dist', ['sassDist', 'jsDist', 'paniniDist', 'imgminDist', 'sitemap']);
