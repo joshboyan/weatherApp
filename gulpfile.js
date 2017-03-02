@@ -77,32 +77,7 @@ gulp.task('sassDist', function() {
         }))
         .pipe(gulp.dest('./builds/dist/css'))
 });
-gulp.task('panini', function() {
-  gulp.src(htmlSources)
-    .pipe(panini({
-      root: './components/pages/',
-      layouts: './components/layouts/',
-      partials: './components/partials/',
-      helpers: './components/helpers/',
-      data: './components/data/'
-    }))
-    .pipe(replace(/(js\/)/g, './builds/dev/js/'))
-    .pipe(replace(/(css\/)/g, './builds/dev/css/'))
-    .pipe(replace(/(img\/)/g, './builds/dev/img/'))
-    .pipe(gulp.dest('./builds/dev'));
-});
 
-gulp.task('paniniDist', function() {
-  gulp.src(htmlSources)
-    .pipe(panini({
-      root: './components/pages/',
-      layouts: './components/layouts/',
-      partials: './components/partials/',
-      helpers: './components/helpers/',
-      data: './components/data/'
-    }))
-    .pipe(gulp.dest('./builds/dist'));
-});
 
 gulp.task('imgmin', function() {
     return gulp.src('./components/img/**/*.*')
@@ -124,7 +99,9 @@ gulp.task('panini', function() {
             helpers: './components/helpers/',
             data: './components/data/'
         }))
-        .pipe(replace(/(%)/g, './builds/dev/'))
+        .pipe(replace(/(js\/)/g, './builds/dev/js/'))
+        .pipe(replace(/(css\/)/g, './builds/dev/css/'))
+        .pipe(replace(/(img\/)/g, './builds/dev/img/'))
         .pipe(gulp.dest('./builds/dev'));
 });
 
@@ -137,7 +114,7 @@ gulp.task('paniniDist', function() {
             helpers: './components/helpers/',
             data: './components/data/'
         }))
-        .pipe(replace(/(%)/g, ''))
+        
         .pipe(gulp.dest('./builds/dist'));
 });
 
