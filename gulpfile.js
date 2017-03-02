@@ -115,31 +115,6 @@ gulp.task('imgminDist', function() {
         .pipe(imgmin())
         .pipe(gulp.dest('./builds/dist/img'));
 });
-gulp.task('panini', function() {
-    return gulp.src('./components/pages/**/*.html')
-        .pipe(panini({
-            root: './components/pages/',
-            layouts: './components/layouts/',
-            partials: './components/partials/',
-            helpers: './components/helpers/',
-            data: './components/data/'
-        }))
-        .pipe(replace(/(%)/g, './builds/dev/'))
-        .pipe(gulp.dest('./builds/dev'));
-});
-
-gulp.task('paniniDist', function() {
-    return gulp.src('./components/pages/**/*.html')
-        .pipe(panini({
-            root: './components/pages/',
-            layouts: './components/layouts/',
-            partials: './components/partials/',
-            helpers: './components/helpers/',
-            data: './components/data/'
-        }))
-        .pipe(replace(/(%)/g, ''))
-        .pipe(gulp.dest('./builds/dist'));
-});
 
 gulp.task('sitemap', function() {
     return gulp.src('./builds/dist/**/*.html', {
