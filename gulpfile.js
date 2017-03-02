@@ -44,7 +44,6 @@ gulp.task('swDist', function() {
 
 gulp.task('js', function() {
   return gulp.src(jsSources)
-    .pipe(replace('./sw.js', './builds/dev/sw.js'))
     .pipe(babel({
       presets: ['es2015']
     }))
