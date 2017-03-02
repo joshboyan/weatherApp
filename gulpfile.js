@@ -123,6 +123,7 @@ gulp.task('sitemap', function() {
             read: false
         })
         .pipe(sitemap({
+            //Change this to your projects permanent address before deployment
             siteUrl: 'https://github.com/joshboyan/minimal-framework.git'
         }))
         .pipe(gulp.dest('./builds/dist'));
