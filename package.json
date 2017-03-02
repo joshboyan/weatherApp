@@ -25,6 +25,7 @@
     "gulp-browserify": "^0.5.1",
     "gulp-cli": "^1.2.2",
     "gulp-concat": "^2.6.0",
+    "gulp-filenames": "^4.0.1",
     "gulp-imagemin": "^3.0.3",
     "gulp-jshint": "^2.0.1",
     "gulp-minify-html": "^1.0.6",

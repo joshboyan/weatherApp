@@ -11,7 +11,7 @@ notifications and home screen icons.
 You can learn more at: https://developers.google.com/web/fundamentals/getting-started/codelabs/your-first-pwapp/ */
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('./builds/dev/sw.js').then(function(registration) {
+    navigator.serviceWorker.register('./sw.js').then(function(registration) {
       // Registration was successful
       console.log('ServiceWorker registration successful with scope: ', registration.scope);
     }).catch(function(err) {

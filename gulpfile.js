@@ -14,7 +14,8 @@ var gulp = require('gulp'),
   browserify = require('gulp-browserify'),
   source = require('vinyl-source-stream'),
   buffer = require('vinyl-buffer'),
-  sourcemaps = require('gulp-sourcemaps');
+  sourcemaps = require('gulp-sourcemaps'),
+  filenames = require("gulp-filenames");
 
 var jsSources = ['./components/js/*.js']; //may need to dictate specific concatenation order
 var sassSources = ['./components/sass/*.scss'];
@@ -23,15 +24,27 @@ var htmlSources = ['./components/**/*.html'];
 gulp.task('browser-sync', function() {
     browserSync.init({
         server: {
-            baseDir: "./",
+            baseDir: "./builds/dev/",
             //Change address below to load different page with browserSync
-            index: "builds/dev/index.html"
+            index: "index.html"
         }
     });
 });
 
+gulp.task('sw', function() {
+  return gulp.src('./components/sw.js')
+  .pipe(replace('[]','[' + filenames.get("all", "relative") + ']'))
+  .pipe(gulp.dest('./builds/dev'))
+});
+
+gulp.task('swDist', function() {
+  return gulp.src('./components/sw.js')
+  .pipe(gulp.dest('./builds/dist'))
+});
+
 gulp.task('js', function() {
   return gulp.src(jsSources)
+    .pipe(replace('./sw.js', './builds/dev/sw.js'))
     .pipe(babel({
       presets: ['es2015']
     }))
@@ -99,9 +112,6 @@ gulp.task('panini', function() {
             helpers: './components/helpers/',
             data: './components/data/'
         }))
-        .pipe(replace(/(js\/)/g, './builds/dev/js/'))
-        .pipe(replace(/(css\/)/g, './builds/dev/css/'))
-        .pipe(replace(/(img\/)/g, './builds/dev/img/'))
         .pipe(gulp.dest('./builds/dev'));
 });
 
@@ -136,6 +146,6 @@ gulp.task('watch', function() {
   gulp.watch(htmlSources, ['panini']).on('change', browserSync.reload);
 });
 
-gulp.task('default', ['js', 'sass', 'panini', 'browser-sync', 'imgmin', 'watch']);
+gulp.task('default', ['js', 'sass', 'sw', 'panini', 'browser-sync', 'imgmin', 'watch']);
 
-gulp.task('dist', ['sassDist', 'jsDist', 'paniniDist', 'imgminDist', 'sitemap']);
+gulp.task('dist', ['sassDist', 'jsDist', 'swDist', 'paniniDist', 'imgminDist', 'sitemap']);
