@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0",
+  "name": "minframe responsive framework",
+  "launch_path": "/index.html",
+  "description": "minframe is a modern HTML5, mobile-first front-end framework built with Sass and Gulp on a 12 column responsive grid. The framework boasts all of the modern accessiblility features and tools developers use in builds but none of the style bloat.",
+  "icons": {
+    "128": "/images/touch/icon-128x128.png"
+  },
+  "developer": {
+    "name": "",
+    "url": ""
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "permissions": {
+  },
+  "locales": {
+    "en": {
+      "name": "minframe responsive framework",
+      "description": "minframe is a modern HTML5, mobile-first front-end framework built with Sass and Gulp on a 12 column responsive grid. The framework boasts all of the modern accessiblility features and tools developers use in builds but none of the style bloat."
+    }
+  }
+}
