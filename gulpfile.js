@@ -21,6 +21,17 @@ var jsSources = ['./components/js/*.js']; //may need to dictate specific concate
 var sassSources = ['./components/sass/*.scss'];
 var htmlSources = ['./components/**/*.html'];
 
+gulp.task('generate-service-worker', function(callback) {
+  var path = require('path');
+  var swPrecache = require('sw-precache');
+  var rootDir = './builds/dev';
+
+  swPrecache.write(path.join(rootDir, 'sw.js'), {
+    staticFileGlobs: ['./components' + '/**/*.{js,html,css,png,jpg,gif}'],
+    stripPrefix: rootDir
+  }, callback);
+});
+
 gulp.task('browser-sync', function() {
     browserSync.init({
         server: {
@@ -145,6 +156,6 @@ gulp.task('watch', function() {
   gulp.watch(htmlSources, ['panini']).on('change', browserSync.reload);
 });
 
-gulp.task('default', ['js', 'sass', 'sw', 'panini', 'browser-sync', 'imgmin', 'watch']);
+gulp.task('default', ['js', 'sass', 'imgmin', 'panini', 'generate-service-worker', 'browser-sync', 'watch']);
 
 gulp.task('dist', ['sassDist', 'jsDist', 'swDist', 'paniniDist', 'imgminDist', 'sitemap']);
