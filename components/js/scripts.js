@@ -15,6 +15,7 @@ if (!window.Promise) {
 
 import 'whatwg-fetch';
 
+// Promise based indexedDB wrapper
 var idb = require('idb');
 
 (function() {
@@ -77,6 +78,12 @@ var idb = require('idb');
     var day3SpeedMPH;
     var day3Humidity;
 
+/***************
+
+Initial indexedDB operations
+
+****************/
+
     // Open an indexedDB database called weather 
     // (Create one if there is none)
     var dbPromise = idb.open('weather', 1, upgradeDB => {
@@ -86,25 +93,41 @@ var idb = require('idb');
         console.error('IndexedDB:', error);
     });
 
+    // Access the indexedDB database to get forecastToday
     dbPromise.then(db => {
+        // Create a database transaction
         let tx = db.transaction('weather', 'readwrite');
+        // Specify an object store for the transaction
         let weather = tx.objectStore('weather', 'readwrite');
+        // Retrieve forecastToday key 
         return weather.get('forecastToday');                    
     }).then(weather => {
+        // Set all the elements with data from indexedDB
         applyForecastToday(weather);
     }).catch(error => {
         console.error('IndexedDB:', error);
     });
 
+    // Access the indexedDB database to get forecast3Day
     dbPromise.then(db => {
+        // Create a database transaction
         let tx = db.transaction('weather', 'readwrite');
+        // // Specify an object store for the transaction
         let weather = tx.objectStore('weather', 'readwrite');
+        // Retrieve forecast3Day key
         return weather.get('forecast3Day');                    
     }).then(weather => {
+        // Set all the elements with data from indexedDB
         applyForecast3Day(weather);
     }).catch(error => {
         console.error('IndexedDB:', error);
     });
+
+/*********************
+
+Functions called to remove and add weather based animations
+
+*********************/
 
     function removeWeather() {
         document.querySelector('#clouds').style.display = 'none';
@@ -192,6 +215,8 @@ var idb = require('idb');
         document.getElementById('snow').querySelector('.heavy').style.display = 'block';
         document.querySelector('#heavySnowLink').className = 'active-link';
     }
+
+    // All the links at the bottom of page to trigger animations
     document.querySelector('#clearLink').addEventListener('click', clearWeather);
     document.querySelector('#partlyLink').addEventListener('click', partlyWeather);
     document.querySelector('#lightRainLink').addEventListener('click', lightRainWeather);
@@ -199,6 +224,12 @@ var idb = require('idb');
     document.querySelector('#stormsLink').addEventListener('click', stormsWeather);
     document.querySelector('#lightSnowLink').addEventListener('click', lightSnowWeather);
     document.querySelector('#heavySnowLink').addEventListener('click', heavySnowWeather);
+
+/***************
+
+Functions to remove and add time-based background colors
+
+***************/
 
     function removeTimeLinks() {
         document.querySelector('#dayLink').className = '';
@@ -243,10 +274,18 @@ var idb = require('idb');
     } else {
         setTwilight();
     }
-    //console.log(time);
+    
+    // Links to change the background colors at bottom of page
     document.querySelector('#dayLink').addEventListener('click', setDay);
     document.querySelector('#nightLink').addEventListener('click', setNight);
     document.querySelector('#twilightLink').addEventListener('click', setTwilight);
+
+/*****************
+
+Click events to switch between Celsius/kph and Farenheit/mph
+
+*****************/
+
     document.querySelector('#c').onclick = function() {
         document.querySelector('#c').className = 'active';
         document.querySelector('#f').className = '';
@@ -259,7 +298,6 @@ var idb = require('idb');
         document.querySelector('#day2Wind').innerHTML = `${day2WindDir} ${day2SpeedKPH} KPH`;
         document.querySelector('#day3Temp').innerHTML = `${day3HighC}/${day3LowC}&deg;C`;
         document.querySelector('#day3Wind').innerHTML = `${day3WindDir} ${day3SpeedKPH} KPH`;
-        // console.log(system);
     };
     document.querySelector('#f').onclick = function() {
         document.querySelector('#f').className = 'active';
@@ -273,8 +311,13 @@ var idb = require('idb');
         document.querySelector('#day2Wind').innerHTML = `${day2WindDir} ${day2SpeedMPH} MPH`;
         document.querySelector('#day3Temp').innerHTML = `${day3HighF}/${day3LowF}&deg;F`;
         document.querySelector('#day3Wind').innerHTML = `${day3WindDir} ${day3SpeedMPH} MPH`;
-        // console.log(system);
     };
+
+/*****************
+
+Functions to set variables and on page elements with data from the api of indexedDB
+
+*****************/
 
     function applyForecastToday(data) {
         city = data.location.city;
@@ -402,6 +445,12 @@ var idb = require('idb');
         document.querySelector('#day3Humidity').innerHTML = `${day3Humidity}%`;
     }
 
+/***************
+
+Fetch the local weather from the api
+
+***************/
+
     // Check is geolocation is available
     if (navigator.geolocation) {
         // Get coordinates of device
@@ -409,8 +458,6 @@ var idb = require('idb');
             // Assign coordinates to varirbles
             latitude = position.coords.latitude;
             longitude = position.coords.longitude;
-            // Show coordinates in viewport
-            // output.innerHTML = `The latitude is ${latitude} and the longitude is ${longitude}`;
             // Setup variables for fetch api promise
             let myHeaders = new Headers();
             let myInit = {
@@ -458,13 +505,23 @@ var idb = require('idb');
     } else {
         console.log('Geolocation is not available in this browser');
     }
+
+/******************
+
+Set the heights dynamically
+
+******************/
+
+    // Get the height of the top panel with all the weather info
+    var infoPanelHeight = document.querySelector('.info-panel').clientHeight;
+    // Ensure the second panel with all the links and copyright info is set far
+    // from the top
+    document.querySelector('.option-panel').style.top = `${300 + infoPanelHeight}px`;
+    // Get the height of the second panel
+    var optionPanelHeight = document.querySelector('.option-panel').clientHeight;
+    // Set the height for the entire app
+    document.querySelector('#main').style.height = `${infoPanelHeight + 500 + optionPanelHeight}px`;
+
     // Change the date in the copyright statement to this year
     document.querySelector('#copy').innerHTML = `&copy; Josh Boyan ${date}`;
-
-    var infoPanelHeight = document.querySelector('.info-panel').clientHeight;
-    //console.log(infoPanelHeight);
-    document.querySelector('.option-panel').style.top = `${300 + infoPanelHeight}px`;
-    var optionPanelHeight = document.querySelector('.option-panel').clientHeight;
-    //console.log(optionPanelHeight);
-    document.querySelector('#main').style.height = `${infoPanelHeight + 500 + optionPanelHeight}px`;
 })();
