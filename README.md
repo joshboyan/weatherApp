@@ -61,5 +61,3 @@ minframe is a modern HTML5, mobile-first framework built with Sass and Gulp on a
  [minframe tutorial](http://joshboyan.com/minframe/tutorial.html)
 
 
-
-
