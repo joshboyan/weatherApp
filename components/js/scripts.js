@@ -489,7 +489,7 @@ Fetch the local weather from the api
                 .then(response => response.json())
                 .then(data => {
                     applyForecast3Day(data);
-                    // Add forecastToday's repsonse to indexedDB incase user goes offline
+                    // Add forecast3Day's repsonse to indexedDB incase user goes offline
                     dbPromise.then(db => {
                         let tx = db.transaction('weather', 'readwrite');
                         let weather = tx.objectStore('weather', 'readwrite');
@@ -499,7 +499,7 @@ Fetch the local weather from the api
                         console.error('IndexedDB:', error);
                     });
                 }).catch(error => {
-                    console.error(error);
+                    console.error('Network:', error);
                 });
         });
     } else {
