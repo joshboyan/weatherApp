@@ -83,7 +83,27 @@ var idb = require('idb');
         // Create an object store named weather if none exists
         let weather = upgradeDB.createObjectStore('weather');
     }).catch(error => {
-        console.error('IndexedDB: ', error);
+        console.error('IndexedDB:', error);
+    });
+
+    dbPromise.then(db => {
+        let tx = db.transaction('weather', 'readwrite');
+        let weather = tx.objectStore('weather', 'readwrite');
+        return weather.get('forecastToday');                    
+    }).then(weather => {
+        applyForecastToday(weather);
+    }).catch(error => {
+        console.error('IndexedDB:', error);
+    });
+
+    dbPromise.then(db => {
+        let tx = db.transaction('weather', 'readwrite');
+        let weather = tx.objectStore('weather', 'readwrite');
+        return weather.get('forecast3Day');                    
+    }).then(weather => {
+        applyForecast3Day(weather);
+    }).catch(error => {
+        console.error('IndexedDB:', error);
     });
 
     function removeWeather() {
@@ -411,11 +431,9 @@ var idb = require('idb');
                         let weather = tx.objectStore('weather', 'readwrite');
                         weather.delete('forecastToday');
                         weather.add(data, 'forecastToday');
-
                     }).catch(error => {
                         console.error('IndexedDB:', error);
                     });
-
                 }).catch(error => {
                     console.error('Network:', error);
                 });
