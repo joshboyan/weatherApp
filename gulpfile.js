@@ -27,7 +27,7 @@ gulp.task('generate-service-worker', function(callback) {
   var rootDir = './builds/dev';
 
   swPrecache.write(path.join(rootDir, 'sw.js'), {
-    staticFileGlobs: ['./components' + '/**/*.{js,html,css,png,jpg,gif}'],
+    staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif}'],
     stripPrefix: rootDir
   }, callback);
 });
@@ -55,13 +55,13 @@ gulp.task('swDist', function() {
 
 gulp.task('js', function() {
   return gulp.src(jsSources)
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'))
     .pipe(babel({
       presets: ['es2015']
     }))
     .pipe(concat('scripts.js'))
     .pipe(sourcemaps.init({ loadMaps: true }))
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'))
     .pipe(browserify({
       insertGlobals: true
     }))
