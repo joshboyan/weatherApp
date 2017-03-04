@@ -281,7 +281,6 @@ var idb = require('idb');
                 .then(response => {
                     response.json()
                         .then(data => {
-                            console.log(data);
                             city = data.location.city;
                             state = data.location.state;
                             weather = data.current_observation.weather;
@@ -295,20 +294,6 @@ var idb = require('idb');
                             windSpeedMPH = data.current_observation.wind_mph;
                             windSpeedKPH = data.current_observation.wind_kph;
                             logo = data.current_observation.image.url;
-                            //console.log(data);
-                            /* console.log(city);
-                             console.log(state);
-                             console.log(weather);
-                             console.log(icon);
-                             console.log(fahrenheit);
-                             console.log(feelsLikeF);
-                             console.log(celsius);
-                             console.log(feelsLikeC);
-                             console.log(humidity);
-                             console.log(windDirection);
-                             console.log(windSpeedMPH);
-                             console.log(windSpeedKPH);
-                             console.log(logo); */
                             document.querySelector('#location').innerHTML = `${city} , ${state}`;
 
                             document.querySelector('#icon').innerHTML = `<img src=${icon.replace('http', 'https')} />`;
@@ -352,16 +337,17 @@ var idb = require('idb');
                                     stormsWeather();
                                 }
                             }
-                          // Add forecastToday's repsonse to indexedDB incase user goes offline
-                          dbPromise.then((db, data) => {
-                            console.log(data);
-                            let tx = db.transaction('weather', 'readwrite');
-                            let weather = tx.objectStore('weather', 'readwrite');
-                            weather.add(data, 'forecastToday');
-            
-                          }).catch(error => {
-                          console.error('IndexedDB:', error);
-                        });
+                            var forcastTodayData = data;
+                            // Add forecastToday's repsonse to indexedDB incase user goes offline
+                            dbPromise.then(db => {
+                                let tx = db.transaction('weather', 'readwrite');
+                                let weather = tx.objectStore('weather', 'readwrite');
+                                weather.delete('forecastToday');
+                                weather.add(forcastTodayData, 'forecastToday');
+
+                            }).catch(error => {
+                                console.error('IndexedDB:', error);
+                            });
                         });
                 }).catch(error => {
                     console.error('Network:', error);
@@ -384,20 +370,6 @@ var idb = require('idb');
                             day1SpeedKPH = data.forecast.simpleforecast.forecastday[1].avewind.kph;
                             day1SpeedMPH = data.forecast.simpleforecast.forecastday[1].avewind.mph;
                             day1Humidity = data.forecast.simpleforecast.forecastday[1].avehumidity;
-                            /* console.log(data);
-                             console.log(day1WeekDay);
-                             console.log(day1Month);
-                             console.log(day1DateDay);
-                             console.log(day1Weather);
-                             console.log(day1Icon);
-                             console.log(day1HighC);
-                             console.log(day1HighF);
-                             console.log(day1LowC);
-                             console.log(day1LowF);
-                             console.log(day1WindDir);
-                             console.log(day1SpeedKPH);
-                             console.log(day1SpeedMPH);
-                             console.log(day1Humidity); */
                             day2WeekDay = data.forecast.simpleforecast.forecastday[2].date.weekday;
                             day2Month = data.forecast.simpleforecast.forecastday[2].date.month;
                             day2DateDay = data.forecast.simpleforecast.forecastday[2].date.day;
@@ -454,6 +426,16 @@ var idb = require('idb');
                             document.querySelector('#day3Temp').innerHTML = `${day3HighF}/${day3LowF}&deg;F`;
                             document.querySelector('#day3Wind').innerHTML = `${day3WindDir} ${day3SpeedMPH} MPH`;
                             document.querySelector('#day3Humidity').innerHTML = `${day3Humidity}%`;
+                            var forcast3DayData = data;
+                            // Add forecastToday's repsonse to indexedDB incase user goes offline
+                            dbPromise.then(db => {
+                                let tx = db.transaction('weather', 'readwrite');
+                                let weather = tx.objectStore('weather', 'readwrite');
+                                weather.delete('forecast3Day');
+                                weather.add(forcast3DayData, 'forecast3Day');
+                            }).catch(error => {
+                                console.error('IndexedDB:', error);
+                            });
                         });
                 }).catch(error => {
                     console.error(error);
