@@ -8,7 +8,13 @@ for the dist build */
 @import "grid";
 @import "variables";
 @import "mixins";
-//mobile styles
+
+/**************
+
+Mobile styles
+
+**************/
+
 html {
     font-size: 12px;
 }
@@ -68,11 +74,11 @@ IDs for all the weather-based animations
 
 /****************
 
-Rain animation
+Rain and snow animations
 
 ****************/
 
-// Light rain
+// Light
 .precipitation {
     position: relative;
     z-index: 10;
@@ -122,7 +128,7 @@ Rain animation
     }
 }
 
-// Heavy rain
+// Heavy
 .heavy {
     postion: relative;
     z-index: 20;
@@ -391,7 +397,7 @@ Sun animation
 
 /*************
 
-Star aimations
+Star animations
 
 *************/
 
