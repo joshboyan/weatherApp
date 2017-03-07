@@ -20,12 +20,12 @@ html {
 }
 
 main {
-    width: 105%;
+    width: 100%;
     width: 100vw;
     max-width: 100%;
     max-width: 100vw;
     min-height: 1500px;
-    margin: -2.5% 0 -2.5% -.25%;
+    margin: -2.5% 0 -2.5% -2.5%;
     overflow: hidden;
     background: #87ceeb;
 }
@@ -249,15 +249,15 @@ Sun animation
 
 @keyframes sun-band-red {
     0% {
-        right: 80px;
+        right: 95px;
         transform: scale(1.5);
     }
     50% {
-        right: 90px;
+        right: 100px;
         transform: scale(1.25) rotate(25deg);
     }
     100% {
-        right: 80px;
+        right: 95px;
         transform: scale(1.5);
     }
 }
@@ -267,7 +267,7 @@ Sun animation
     z-index: 5;
     float: right;
     top: 25px;
-    right: 70px;
+    right: 95px;
     animation: sun-band-orange 2s ease-in-out infinite;
 }
 
@@ -288,7 +288,7 @@ Sun animation
     z-index: 0;
     float: right;
     top: 30px;
-    right: 80px;
+    right: 105px;
     animation: sun-band-between 2s ease-in-out infinite;
 }
 

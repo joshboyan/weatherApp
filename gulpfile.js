@@ -59,7 +59,7 @@ gulp.task('browser-sync', function() {
 Inject push notification scripts into builds/dev and builds/dist sw.js
 
 ***************/
-
+// Also need to add a script to copy manifest.json to build folders
 gulp.task('sw', function() {
   return gulp.src('./components/sw.js')
   .pipe(replace('[]','[' + filenames.get("all", "relative") + ']'))
