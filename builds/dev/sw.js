@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["/css/styles.css","e8e8502d6acd353ab91310d5b673213f"],["/img/favicon.png","5114d0d8357bed6f7123fe533a7ac3be"],["/index.html","2595f631ead68538af13a4707b2f16b6"],["/js/scripts.js","2069a79b60e6df64e0d2fec1ca6941c0"]];
+var precacheConfig = [["/css/styles.css","e8e8502d6acd353ab91310d5b673213f"],["/img/apple-touch-logo.png","9fc51d8448d6694877934bd3a3ee26c6"],["/img/chrome-touch-icon-192x192.png","60e982333fe158a76858812b64abcc71"],["/img/favicon.png","5114d0d8357bed6f7123fe533a7ac3be"],["/img/icon-128x128.png","e5a904ce9d70e40aa12f0166d101e2e5"],["/img/large-icon-252x252.png","78b12bf935dcb0017c05e2d208d91bf1"],["/img/logo.png","c307e3be40874b35ae18e7d58066f1f2"],["/img/ms-touch-icon-144x144.png","c33427af9c545ab4cf281a0844abc6b2"],["/index.html","aedd873bfb92cae129a2f56994598573"],["/js/scripts.js","a948bd1dc9ecd7b6b018c65297fc51ee"]];
 var cacheName = 'sw-precache-v3--' + (self.registration ? self.registration.scope : '');
 
 

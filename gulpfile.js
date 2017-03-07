@@ -27,10 +27,21 @@ Automatically generate service worker with all assets
 
 ***************/
 
-gulp.task('generate-service-worker', function(callback) {
+gulp.task('serviceWorker', function(callback) {
   var path = require('path');
   var swPrecache = require('sw-precache');
   var rootDir = './builds/dev';
+
+  swPrecache.write(path.join(rootDir, 'sw.js'), {
+    staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif}'],
+    stripPrefix: rootDir
+  }, callback);
+});
+
+gulp.task('serviceWorkerDist', function(callback) {
+  var path = require('path');
+  var swPrecache = require('sw-precache');
+  var rootDir = './builds/dist';
 
   swPrecache.write(path.join(rootDir, 'sw.js'), {
     staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif}'],
@@ -68,6 +79,22 @@ gulp.task('sw', function() {
 
 gulp.task('swDist', function() {
   return gulp.src('./components/sw.js')
+  .pipe(gulp.dest('./builds/dist'))
+});
+
+/***************
+
+Move manifest.json to build folders
+
+***************/
+
+gulp.task('manifest', function() {
+  return gulp.src('./components/manifest.json')
+  .pipe(gulp.dest('./builds/dev'))
+});
+
+gulp.task('manifestDist', function() {
+  return gulp.src('./components/manifest.json')
   .pipe(gulp.dest('./builds/dist'))
 });
 
@@ -215,6 +242,6 @@ Default commands
 
 **************/
 
-gulp.task('default', ['js', 'sass', 'imgmin', 'panini', 'generate-service-worker', 'browser-sync', 'watch']);
+gulp.task('default', ['js', 'sass', 'imgmin', 'manifest', 'panini', 'serviceWorker', 'browser-sync', 'watch']);
 
-gulp.task('dist', ['sassDist', 'jsDist', 'swDist', 'paniniDist', 'imgminDist', 'sitemap']);
+gulp.task('dist', ['sassDist', 'jsDist', 'swDist', 'paniniDist', 'imgminDist', 'manifestDist', 'serviceWorkerDist', 'sitemap']);

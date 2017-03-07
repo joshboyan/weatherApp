@@ -1,36 +1,29 @@
-/***************
-
-This file is what lets your app or website icon be added to mobile 
-homescreens to simulate native app experience
-
-***************/
 {
-  "name": "SVG Weather",
-  "short_name": "SVG Weather",
-  "icons": [{
+    "name": "SVG Weather",
+    "short_name": "SVG Weather",
+    "icons": [{
         "src": "img/icon-128x128.png",
         "sizes": "128x128",
         "type": "image/png"
-      }, {
+    }, {
         "src": "img/apple-touch-icon.png",
         "sizes": "152x152",
         "type": "image/png"
-      }, {
+    }, {
         "src": "img/ms-touch-icon-144x144.png",
         "sizes": "144x144",
         "type": "image/png"
-      }, {
+    }, {
         "src": "img/chrome-touch-icon-192x192.png",
         "sizes": "192x192",
         "type": "image/png"
-      },
-    {
-      "src": "img/large-icon-252x252.png",
-      "sizes": "252x252",
-      "type": "image/png"
+    }, {
+        "src": "img/large-icon-252x252.png",
+        "sizes": "252x252",
+        "type": "image/png"
     }],
-  "start_url": "/index.html?homescreen=1",
-  "display": "standalone",
-  "background_color": "#3E4EB8",
-  "theme_color": "#000000"
+    "start_url": "/?utm_source=homescreen",
+    "display": "standalone",
+    "background_color": "#303F9F",
+    "theme_color": "#303F9F"
 }
