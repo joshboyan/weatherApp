@@ -17,7 +17,7 @@ var gulp = require('gulp'),
   sourcemaps = require('gulp-sourcemaps'),
   filenames = require("gulp-filenames");
 
-var jsSources = ['./components/js/*.js']; //may need to dictate specific concatenation order
+var jsSources = ['./components/js/scripts.js', './components/js/sw-register.js', './components/js/notifications.js']; //may need to dictate specific concatenation order
 var sassSources = ['./components/sass/*.scss'];
 var htmlSources = ['./components/**/*.html'];
 
