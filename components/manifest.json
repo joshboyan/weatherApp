@@ -1,6 +1,11 @@
 {
     "name": "SVG Weather",
     "short_name": "SVG Weather",
+    "description": "Animated Weather Progressive Web App",
+    "start_url": "/?utm_source=homescreen",
+    "display": "standalone",
+    "background_color": "#303F9F",
+    "theme_color": "#303F9F",
     "icons": [{
         "src": "img/icon-128x128.png",
         "sizes": "128x128",
@@ -22,8 +27,11 @@
         "sizes": "252x252",
         "type": "image/png"
     }],
-    "start_url": "/?utm_source=homescreen",
-    "display": "standalone",
-    "background_color": "#303F9F",
-    "theme_color": "#303F9F"
+     "author": {
+    "name": "Josh Boyan",
+    "website": "https://joshboyan.com",
+    "github": "https://github.com/joshboyan/",
+    "source-repo": "https://github.com/joshboyan/weather-app.git"
+  },
+  "gcm_sender_id": "954721788841"
 }

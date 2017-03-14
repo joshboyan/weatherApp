@@ -2,8 +2,8 @@
   'use strict';
 
   //Push notification button
-  var fabPushElement = document.querySelector('.fab__push');
-  var fabPushImgElement = document.querySelector('.fab__image');
+  var fabPushElement = document.getElementById('icon');
+  var fabPushImgElement = document.querySelector('#icon');
 
   //To check `push notification` is supported or not
   function isPushSupported() {
@@ -53,17 +53,17 @@
         userVisibleOnly: true //Always show notification when received
       })
       .then(function (subscription) {
-        toast('Subscribed successfully.');
+        alert('Subscribed successfully.');
         console.info('Push notification subscribed.');
         console.log(subscription);
-        //saveSubscriptionID(subscription);
+        saveSubscriptionID(subscription);
         changePushStatus(true);
       })
       .catch(function (error) {
         changePushStatus(false);
         console.error('Push notification subscription error: ', error);
       });
-    })
+    });
   }
 
   // Unsubscribe the user from push notifications
@@ -82,10 +82,10 @@
         //Unsubscribe `push notification`
         subscription.unsubscribe()
           .then(function () {
-            toast('Unsubscribed successfully.');
+            alert('Unsubscribed successfully.');
             console.info('Push notification unsubscribed.');
             console.log(subscription);
-            //deleteSubscriptionID(subscription);
+            deleteSubscriptionID(subscription);
             changePushStatus(false);
           })
           .catch(function (error) {
@@ -95,10 +95,11 @@
       .catch(function (error) {
         console.error('Failed to unsubscribe push notification.');
       });
-    })
+    });
   }
 
   //To change status
+  // This is also where we will change the icon
   function changePushStatus(status) {
     fabPushElement.dataset.checked = status;
     fabPushElement.checked = status;
@@ -122,6 +123,33 @@
       subscribePush();
     }
   });
+
+  function saveSubscriptionID(subscription) {
+    var subscription_id = subscription.endpoint.split('gcm/send/')[1];
+
+    console.log("Subscription ID", subscription_id);
+
+    fetch('http://localhost:3333/api/users', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ user_id : subscription_id })
+    });
+}
+
+function deleteSubscriptionID(subscription) {
+    var subscription_id = subscription.endpoint.split('gcm/send/')[1];
+
+    fetch('http://localhost:3333/api/user/' + subscription_id, {
+      method: 'delete',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    });
+}
 
   isPushSupported(); //Check for push notification support
 })(window);

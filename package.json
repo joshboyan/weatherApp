@@ -45,6 +45,7 @@
   "dependencies": {
     "idb": "^2.0.0",
     "promise-polyfill": "^6.0.2",
+    "toastr": "^2.1.2",
     "whatwg-fetch": "^2.0.3"
   }
 }

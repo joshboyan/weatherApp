@@ -70,15 +70,18 @@ gulp.task('browser-sync', function() {
 Inject push notification scripts into builds/dev and builds/dist sw.js
 
 ***************/
-// Also need to add a script to copy manifest.json to build folders
-gulp.task('sw', function() {
-  return gulp.src('./components/sw.js')
-  .pipe(replace('[]','[' + filenames.get("all", "relative") + ']'))
-  .pipe(gulp.dest('./builds/dev'))
+
+gulp.task('sw', ['serviceWorker'], function() {
+  return gulp.src(['./builds/dev/sw.js', './components/sw-push.js'])
+  .pipe(concat('./builds/dev/sw.js'))
+  .pipe(sourcemaps.write())
+  .pipe(gulp.dest('./'))
 });
 
-gulp.task('swDist', function() {
-  return gulp.src('./components/sw.js')
+gulp.task('swDist', ['serviceWorkerDist'], function() {
+  return gulp.src(['./builds/dev/sw.js', './components/sw-push.js'])
+  .pipe(concat('./builds/dev/sw.js'))
+  .pipe(sourcemaps.write())
   .pipe(gulp.dest('./builds/dist'))
 });
 
@@ -242,6 +245,6 @@ Default commands
 
 **************/
 
-gulp.task('default', ['js', 'sass', 'imgmin', 'manifest', 'panini', 'serviceWorker', 'browser-sync', 'watch']);
+gulp.task('default', ['sw', 'js', 'sass', 'imgmin', 'manifest', 'panini', 'browser-sync', 'watch']);
 
-gulp.task('dist', ['sassDist', 'jsDist', 'swDist', 'paniniDist', 'imgminDist', 'manifestDist', 'serviceWorkerDist', 'sitemap']);
+gulp.task('dist', ['swDist','sassDist', 'jsDist', 'swDist', 'paniniDist', 'imgminDist', 'manifestDist', 'sitemap']);
