@@ -25,7 +25,7 @@ main {
     max-width: 100%;
     max-width: 100vw;
     min-height: 1500px;
-    margin: -2.5% 0 -2.5% -2.5%;
+    margin: 0;
     overflow: hidden;
     background: #87ceeb;
 }
@@ -243,7 +243,7 @@ Sun animation
     position: absolute;
     z-index: 10;
     float: right;
-    top: 30px;
+    top: 40px;
     animation: sun-band-red 2s ease-in-out infinite;
 }
 
@@ -267,7 +267,7 @@ Sun animation
     z-index: 5;
     float: right;
     top: 25px;
-    right: 95px;
+    right: 80px;
     animation: sun-band-orange 2s ease-in-out infinite;
 }
 
@@ -287,8 +287,8 @@ Sun animation
     position: absolute;
     z-index: 0;
     float: right;
-    top: 30px;
-    right: 105px;
+    top: 40px;
+    right: 90px;
     animation: sun-band-between 2s ease-in-out infinite;
 }
 
@@ -576,7 +576,7 @@ Star animations
 
 /**************
 
-Moon animiation
+Moon animation
 
 **************/
 

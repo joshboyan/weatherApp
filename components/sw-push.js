@@ -8,14 +8,14 @@ self.addEventListener('push', function(event) {
 
   console.info('Event: Push');
 
-  var title = 'New commit on Github Repo: RIL';
+  var title = 'Animated Weather';
 
   var body = {
-    'body': 'Click to see the latest commit',
+    'body': event,
     'tag': 'pwa',
     'icon': './images/48x48.png'
   };
-
+  console.log(event);
   event.waitUntil(
     self.registration.showNotification(title, body)
   );
