@@ -1,6 +1,6 @@
 {
-    "name": "SVG Weather",
-    "short_name": "SVG Weather",
+    "name": "Animated Weather",
+    "short_name": "Animated Weather",
     "description": "Animated Weather Progressive Web App",
     "start_url": "/?utm_source=homescreen",
     "display": "standalone",
@@ -29,8 +29,8 @@
     }],
      "author": {
     "name": "Josh Boyan",
-    "website": "https://joshboyan.com",
-    "github": "https://github.com/joshboyan/",
+    "website": "https://joshboyan.com/weather-app/",
+    "github": "https://github.com/joshboyan/weather-app",
     "source-repo": "https://github.com/joshboyan/weather-app.git"
   },
   "gcm_sender_id": "954721788841"

@@ -1,11 +1,12 @@
 /*jshint esversion: 6,  browser: true, devel: true, strict: true*/
 
-/*You can have as many different javascript files as you like. but you have to 
-list them in the gulpfile.js to ensure they concatenate in a specific order. You an use SE2015 
-style imports(import module from 'module';) before the IIFE "use strict"; function. You can 
-also use CommonJS style npm incudes in the browser "var module = require('module);". All 
-scripts will all be compiled to ES5, concantenated and linted for the dev build andminified 
-with comments removed for the dist build.*/
+/******************
+This file houses all the logic to request the users location with the 
+geolocation API, request the current weather and forecast from weather
+underground and display SVG animations and info based on the response.
+After the interface is updated, the repsonses are cached to indexeddb
+so the app can be used in low connectiveity or offline.  
+******************/
 
 import Promise from 'promise-polyfill';
 // To add to window
