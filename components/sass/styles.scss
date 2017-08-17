@@ -90,7 +90,7 @@ Rain and snow animations
     overflow: hidden;
     margin-top: -100px;
     .drop {
-        positon: relative;
+        position: relative;
         float: left;
         animation: rain 1.2s ease-out infinite;
         &:nth-child(1) {
@@ -134,13 +134,13 @@ Rain and snow animations
 
 // Heavy
 .heavy {
-    postion: relative;
+    position: relative;
     z-index: 20;
     height: 400px;
     margin-top: -450px;
     overflow: hidden;
     .drop {
-        positon: relative;
+        position: relative;
         float: left;
         margin-top: 0;
         animation: heavy 1.5s ease-out infinite;
@@ -761,7 +761,7 @@ Main info panel styles
 .forecastCol {
     display: flex;
     justify-content: center;
-    align-itmes: center;
+    align-items: center;
 }
 
 hr {
@@ -785,6 +785,7 @@ Secondary options panel styles
 
 .option-panel {
     position: absolute;
+    top: 1000px;
     z-index: 500;
     width: 90%;
     margin-top: 100px;
@@ -852,22 +853,5 @@ Tablet styles
     .option-panel {
         width: 60%;
         margin-left: 20%;
-    }
-}
-
-/**************
-
-Large screen styles
-
-**************/
-
-@media only screen and (min-width: 1140px) {
-    html {}
-    body {
-        header {
-            nav {}
-        }
-        main {}
-        footer {}
     }
 }

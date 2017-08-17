@@ -174,7 +174,7 @@ gulp.task('sitemap', function() {
         })
         .pipe(sitemap({
             //Change this to your projects permanent address before deployment
-            siteUrl: 'https://github.com/joshboyan/minimal-framework.git'
+            siteUrl: 'https://joshboyan.com/weather-app/'
         }))
         .pipe(gulp.dest('./builds/dist'));
 });
@@ -197,6 +197,6 @@ Default commands
 
 **************/
 
-gulp.task('default', ['sw', 'js', 'sass', 'imgmin', 'manifest', 'panini', 'browser-sync', 'watch']);
+gulp.task('default', ['js', 'sass', 'imgmin', 'manifest', 'panini', 'browser-sync', 'watch']);
 
-gulp.task('dist', ['swDist','sassDist', 'jsDist', 'swDist', 'paniniDist', 'imgminDist', 'manifestDist', 'sitemap']);
+gulp.task('dist', ['sassDist', 'jsDist', 'paniniDist', 'imgminDist', 'manifestDist', 'sitemap']);
