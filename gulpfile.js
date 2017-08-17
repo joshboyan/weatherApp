@@ -21,34 +21,6 @@ var jsSources = ['./components/js/scripts.js', './components/js/sw-register.js',
 var sassSources = ['./components/sass/*.scss'];
 var htmlSources = ['./components/**/*.html'];
 
-/***************
-
-Automatically generate service worker with all assets 
-
-***************/
-
-gulp.task('serviceWorker', function(callback) {
-  var path = require('path');
-  var swPrecache = require('sw-precache');
-  var rootDir = './builds/dev';
-
-  swPrecache.write(path.join(rootDir, 'sw.js'), {
-    staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif}'],
-    stripPrefix: rootDir
-  }, callback);
-});
-
-gulp.task('serviceWorkerDist', function(callback) {
-  var path = require('path');
-  var swPrecache = require('sw-precache');
-  var rootDir = './builds/dist';
-
-  swPrecache.write(path.join(rootDir, 'sw.js'), {
-    staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif}'],
-    stripPrefix: rootDir
-  }, callback);
-});
-
 /**************
 
 Open up browser for builds/dev folder
@@ -63,26 +35,6 @@ gulp.task('browser-sync', function() {
             index: "index.html"
         }
     });
-});
-
-/***************
-
-Inject push notification scripts into builds/dev and builds/dist sw.js
-
-***************/
-
-gulp.task('sw', ['serviceWorker'], function() {
-  return gulp.src(['./builds/dev/sw.js', './components/sw-push.js'])
-  .pipe(concat('./builds/dev/sw.js'))
-  .pipe(sourcemaps.write())
-  .pipe(gulp.dest('./'))
-});
-
-gulp.task('swDist', ['serviceWorkerDist'], function() {
-  return gulp.src(['./builds/dev/sw.js', './components/sw-push.js'])
-  .pipe(concat('./builds/dev/sw.js'))
-  .pipe(sourcemaps.write())
-  .pipe(gulp.dest('./builds/dist'))
 });
 
 /***************

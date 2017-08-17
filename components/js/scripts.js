@@ -26,6 +26,7 @@ var idb = require('idb');
     var latitude;
     var longitude;
     var city;
+    var dateTime;
     var state;
     var weather;
     var icon;
@@ -321,6 +322,7 @@ Functions to set variables and on page elements with data from the api of indexe
 
     function applyForecastToday(data) {
         city = data.location.city;
+        dateTime = data.current_observation.local_time_rfc822.slice(0,22);
         state = data.location.state;
         weather = data.current_observation.weather;
         icon = data.current_observation.icon_url;
@@ -334,6 +336,7 @@ Functions to set variables and on page elements with data from the api of indexe
         windSpeedKPH = data.current_observation.wind_kph;
         logo = data.current_observation.image.url;
         document.querySelector('#location').innerHTML = `${city} , ${state}`;
+        document.querySelector("#dateTime").innerHTML = `${dateTime}`;
         document.querySelector('#icon').innerHTML = `<img src=${icon.replace('http', 'https')} />`;
         document.querySelector('#conditions').innerHTML = `${weather}`;
         document.querySelector('#humidity').innerHTML = `${humidity}`;
@@ -471,6 +474,8 @@ Fetch the local weather from the api
             fetch(forecastToday, myInit)
                 .then(response => response.json())
                 .then(data => {
+                    //Fill in data in the interface
+                    console.log(data);
                     applyForecastToday(data);
                     // Add forecastToday's repsonse to indexedDB incase user goes offline
                     dbPromise.then(db => {
@@ -488,6 +493,7 @@ Fetch the local weather from the api
             fetch(forecast3Day, myInit)
                 .then(response => response.json())
                 .then(data => {
+                    // Fill in data in the interface
                     applyForecast3Day(data);
                     // Add forecast3Day's repsonse to indexedDB incase user goes offline
                     dbPromise.then(db => {
@@ -516,7 +522,7 @@ Set the heights dynamically
     var infoPanelHeight = document.querySelector('.info-panel').clientHeight;
     // Ensure the second panel with all the links and copyright info is set far
     // from the top
-    document.querySelector('.option-panel').style.top = `${300 + infoPanelHeight}px`;
+    document.querySelector('.option-panel').style.top = `${330 + infoPanelHeight}px`;
     // Get the height of the second panel
     var optionPanelHeight = document.querySelector('.option-panel').clientHeight;
     // Set the height for the entire app

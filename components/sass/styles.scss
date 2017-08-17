@@ -685,7 +685,10 @@ Main info panel styles
     justify-content: center;
     align-items: stretch;
 }
-
+#dateTime {
+    margin-top: -.5em;
+    font-weight: bold;
+}
 .weather {
     flex: 3;
     width: 60%;
