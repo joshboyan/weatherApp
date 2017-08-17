@@ -1,4 +1,4 @@
-#Animated Weather
+# Animated Weather
 
 This is a progressive web app built with ECMAScript2015 to provide users with their current weather and a 3 day forecast. Their location is programmatically attained using the Geolocation API and the latest weather observation is fetched from the Weather Underground API. Once the response is recieved the app renders a background based on the time and displays SVG animations based on weather conditions.
 
