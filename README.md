@@ -4,4 +4,4 @@ This is a progressive web app built with ECMAScript2015 to provide users with th
 
 Animated weather uses service workers to to provide a better user experience in low connectivity and offline as well as the option for users to add the app to their homescreen. The app is built using the ES2015 imports modules to polyfill the fetch API and a Promise wrapper for the IndexedDB API to store weather info for offline access.
 
-[View Animated Weather](https://joshboyan.com/weather-app/)
+[View Animated Weather](https://joshboyan.github.io/weatherApp/builds/dist/)
